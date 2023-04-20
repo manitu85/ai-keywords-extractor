@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+pnpm-debug.log*
+pnpm-lock.yaml
+
+# dependencies
+/node_modules
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# build
+build/*
+build-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.html
+.gitignore
+
+# vercel
+.vercel
+
+# turbo
+.turbo/*

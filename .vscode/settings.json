@@ -1,0 +1,13 @@
+{
+  // These are all auto-save configs
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  // tell the ESLint plugin to run on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.format": true
+  },
+  // Default eslint vscode formatter extension
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+}
