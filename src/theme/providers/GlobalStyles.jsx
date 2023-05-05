@@ -8,12 +8,10 @@ const GlobalStyle = () => {
           scroll-behavior: smooth;
         }
         body {
+          border-top: 5px solid #90e0ef;
           font-family: 'Open Sans';
-          background-color: #3f0843;
-          border-top: 5px solid #ff4d05;
-          color: #fff;
         }
-        ul {
+        li {
           list-style: none;
         }
       `}

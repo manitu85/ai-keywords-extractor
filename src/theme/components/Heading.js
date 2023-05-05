@@ -1,11 +1,11 @@
 export const Heading = {
   baseStyle: {
     fontFamily: 'Inter',
-    fontWeight: '600'
+    fontWeight: '700'
   },
   sizes: {
-    small: { fontSize: '20px' },
-    medium: { fontSize: '25px' },
-    large: { fontSize: '30px' }
+    small: { fontSize: '24px' },
+    medium: { fontSize: '32px' },
+    large: { fontSize: '48px' }
   }
 };
