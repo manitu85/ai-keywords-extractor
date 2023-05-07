@@ -9,14 +9,17 @@ export default defineConfig({
     outDir: 'build'
   },
   resolve: {
-    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+      { find: '@elements', replacement: path.resolve(__dirname, 'src/components/Elements') }
+    ]
   },
-  plugins: [react(), svgrPlugin({ exportAsDefault: true })],
   server: {
     open: true,
     port: 3000,
     watch: {
       usePolling: true
     }
-  }
+  },
+  plugins: [react(), svgrPlugin({ exportAsDefault: true })]
 });

@@ -7,7 +7,6 @@
     "source.fixAll.eslint": true,
     "source.fixAll.format": true
   },
-  // Default eslint vscode formatter extension
+  // Default prettier vscode formatter extension
   "editor.defaultFormatter": "esbenp.prettier-vscode"
-  // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
 }

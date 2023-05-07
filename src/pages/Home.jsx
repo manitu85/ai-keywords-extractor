@@ -1,8 +1,10 @@
+import Feature from '@/components/Elements/Feature';
+import { feature } from '@/config';
+
 export default function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      <h3>This is main page</h3>
+      <Feature title={feature.title} sub={feature.subtitle} desc={feature.desc} />
     </div>
   );
 }
