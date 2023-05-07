@@ -1,11 +1,11 @@
 import { Flex } from '@chakra-ui/react';
 
-const Container = ({ children }) => {
+const MainContainer = ({ children }) => {
   return (
-    <Flex as='main' maxW='960px' justify='center' direction='column' w='100%' minHeight='95vh'>
+    <Flex as='main' justify='center' direction='column' h='90vh' mx='auto'>
       {children}
     </Flex>
   );
 };
 
-export default Container;
+export default MainContainer;
