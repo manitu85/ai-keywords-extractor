@@ -1,16 +1,9 @@
-import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import customTheme from '..';
-import GlobalStyle from './GlobalStyles';
 
 const ThemeProvider = ({ children }) => {
-  return (
-    <ChakraProvider theme={customTheme}>
-      <GlobalStyle />
-      <ColorModeScript initialColorMode={customTheme.config.initialColorMode} />
-      {children}
-    </ChakraProvider>
-  );
+  return <ChakraProvider theme={customTheme}>{children}</ChakraProvider>;
 };
 
 export default ThemeProvider;

@@ -1,24 +1,24 @@
 import { extendTheme } from '@chakra-ui/react';
 
-import { breakpoints, colors, fonts } from './base';
-import { Button, Card, Container, Heading } from './components';
+import * as foundations from './base';
+import * as components from './components';
+import { globalStyles } from './globalStyles';
+import { semanticTokens } from './tokens';
 
 const config = {
-  initialColorMode: 'light',
-  useSystemColorMode: false
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
+  cssVarPrefix: 'aikye'
 };
 
 const overrides = {
+  config,
+  ...globalStyles,
+  ...semanticTokens,
+  ...foundations,
   components: {
-    Card,
-    Container,
-    Heading,
-    Button
-  },
-  fonts,
-  colors,
-  breakpoints,
-  config
+    ...components
+  }
 };
 
 const customTheme = extendTheme(overrides);
