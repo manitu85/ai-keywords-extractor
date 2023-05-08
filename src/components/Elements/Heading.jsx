@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/react';
 
 import { ChakraLogo, EslintLogo, PrettierLogo, ReactLogo, ViteLogo } from '@/assets';
 
-export default function Heading() {
+const Heading = () => {
   const styles = {
     fontSize: '3rem',
     fontWeight: 'bold'
@@ -38,4 +38,5 @@ export default function Heading() {
       </div>
     </Flex>
   );
-}
+};
+export default Heading;
