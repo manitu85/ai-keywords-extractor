@@ -1,6 +1,8 @@
+/* eslint-disable unicorn/prefer-module */
 /* eslint-disable import/no-extraneous-dependencies */
+import path from 'node:path';
+
 import react from '@vitejs/plugin-react';
-import path from 'path';
 import { defineConfig } from 'vite';
 import svgrPlugin from 'vite-plugin-svgr';
 
@@ -11,7 +13,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@', replacement: path.resolve(__dirname, 'src') },
-      { find: '@elements', replacement: path.resolve(__dirname, 'src/components/Elements') }
+      { find: '@Elements', replacement: path.resolve(__dirname, 'src/components/Elements') }
     ]
   },
   server: {
