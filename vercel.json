@@ -1,0 +1,8 @@
+{
+  "github": {
+    "silent": true,
+    "autoJobCancelation": true
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "buildCommand": "pnpm build"
+}
