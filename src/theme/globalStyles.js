@@ -5,18 +5,13 @@ export const globalStyles = {
         scrollBehavior: 'smooth'
       },
       body: {
-        fontFamily: 'body',
+        fontFamily: '"Open Sans"',
         color: 'fg-default',
         background: 'bg-default', // fallback for gradient
-        borderTop: 'border-top-line',
-        overflowY: 'hidden'
+        borderTop: 'border-top-line'
+        // overflowY: 'hidden'
       },
-      // h1: {
-      //   fontFamily: 'heading'
-      // },
-      // h2: {
-      //   fontFamily: 'heading'
-      // },
+      //  h1: {},
       li: {
         listStyle: 'none'
       }

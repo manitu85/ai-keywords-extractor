@@ -1,6 +1,4 @@
-import { Button } from './Button';
-import { Card } from './Card';
-import { Container } from './Container';
-import { Heading } from './Heading';
-
-export { Button, Card, Container, Heading };
+export { Button } from './Button';
+export { Card } from './Card';
+export { Container } from './Container';
+export { Heading } from './Heading';

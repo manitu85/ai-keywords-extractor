@@ -1,7 +1,7 @@
 export const fonts = {
   fonts: {
-    heading: '"Open Sans", sans-serif',
-    body: '"Inter", sans-serif'
+    body: '"Open Sans", sans-serif',
+    heading: '"Inter", sans-serif'
   },
   fontWeights: {
     light: 300,
