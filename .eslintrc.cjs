@@ -3,7 +3,14 @@ const eslint = {
     browser: true,
     es2021: true
   },
-  extends: ['airbnb', 'airbnb/hooks', 'plugin:react/jsx-runtime', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+    'plugin:react/jsx-runtime',
+    'plugin:sonarjs/recommended',
+    'plugin:unicorn/recommended',
+    'plugin:prettier/recommended'
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -21,6 +28,8 @@ const eslint = {
     'react/no-array-index-key': 0,
     'react/state-in-constructor': 0,
     'react/prop-types': 0,
+    'unicorn/filename-case': 0,
+    'unicorn/prevent-abbreviations': 0,
     'simple-import-sort/imports': 2,
     'simple-import-sort/exports': 2,
     'import/newline-after-import': 2,
