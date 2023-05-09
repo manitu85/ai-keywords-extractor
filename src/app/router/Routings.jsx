@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
-import { About, AiKeywords, Contact, Home, NotFound } from '@/pages';
+import { About, AiKeywords, Contact, Home, NotFound } from '@/app/pages';
 
 export default function Routings() {
   const location = useLocation();

@@ -1,5 +1,3 @@
-import './main.css';
-
 import { ColorModeScript } from '@chakra-ui/react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -8,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import customTheme from '@/theme';
 
-import App from './App';
+import App from './app/App';
 
 // eslint-disable-next-line unicorn/prefer-query-selector
 const container = document.getElementById('root');
