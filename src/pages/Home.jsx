@@ -1,10 +1,20 @@
+import { Flex } from '@chakra-ui/react';
+
 import Feature from '@/components/Elements/Feature';
+import MotionBox from '@/components/Motion/MotionBox';
+import { MotionRouteTransition } from '@/components/Motion/MotionRouteTransition';
 import { feature } from '@/config';
+import { motionProps } from '@/theme/motion/motion.variants';
 
 export default function Home() {
   return (
-    <div>
-      <Feature title={feature.title} sub={feature.subtitle} desc={feature.desc} />
-    </div>
+    <>
+      <MotionBox {...motionProps}>
+        <Flex justify='center' align='center' direction='column'>
+          <Feature title={feature.title} sub={feature.subtitle} desc={feature.desc} />
+        </Flex>
+      </MotionBox>
+      <MotionRouteTransition />
+    </>
   );
 }
