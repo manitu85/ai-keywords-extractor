@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/react';
 
 const MainContainer = ({ children }) => {
   return (
-    <Flex as='main' justify='center' direction='column' h='90vh' mx='auto'>
+    <Flex as='main' justify='center' direction='column' minH='calc(100vh - 12rem)' mx='auto'>
       {children}
     </Flex>
   );

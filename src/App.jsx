@@ -1,12 +1,13 @@
 import MainLayout from '@/components/Layout/MainLayout';
-import Routings from '@/router/Routings';
+// eslint-disable-next-line import/no-named-default
+import { default as FramerRoutes } from '@/router/Routings';
 import ThemeProvider from '@/theme/providers/ThemeProvider';
 
 export default function App() {
   return (
     <ThemeProvider>
       <MainLayout>
-        <Routings />
+        <FramerRoutes />
       </MainLayout>
     </ThemeProvider>
   );

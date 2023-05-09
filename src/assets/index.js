@@ -1,6 +1,5 @@
 export { default as Bulb } from '@/assets/bulb.svg';
 export { default as BulbIdea } from '@/assets/bulb-idea.svg';
-export { default as BulbLighting } from '@/assets/bulb-lighting.svg';
 export { default as ChakraLogo } from '@/assets/chakraui.svg';
 export { default as EslintLogo } from '@/assets/eslint.svg';
 export { default as OpenAiLogo } from '@/assets/openai.svg';

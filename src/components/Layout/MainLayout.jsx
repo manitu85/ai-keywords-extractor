@@ -1,4 +1,4 @@
-import { Flex, useColorMode } from '@chakra-ui/react';
+import { Box, useColorMode } from '@chakra-ui/react';
 
 import MainContainer from '@/components/Elements/Container';
 import Meta from '@/components/Seo/Seo';
@@ -12,11 +12,11 @@ export default function MainLayout({ children, ...props }) {
   // console.log('THEME_OBJECT', theme);
 
   return (
-    <Flex align='center' direction='column' height='100vh' layerStyle={layerStyles} {...props}>
+    <Box layerStyle={layerStyles} {...props}>
       <Meta />
       <Header />
       <MainContainer>{children}</MainContainer>
       <Footer />
-    </Flex>
+    </Box>
   );
 }

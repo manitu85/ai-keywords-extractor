@@ -27,7 +27,7 @@ const Feature = ({ title, sub, desc, ...rest }) => {
       </Text>
       <Flex justify='flex-start' gap={16} mt={2}>
         <HStack spacing={2}>
-          <Icon as={RiUserStarFill} boxSize={6} currentColor />
+          <Icon as={RiUserStarFill} boxSize={6} color='current' />
           <Text
             color='fg-muted'
             mt={4}
@@ -41,16 +41,16 @@ const Feature = ({ title, sub, desc, ...rest }) => {
               active daily <CountUp
                 prefix='~ '
                 start={73}
-                end={12345}
+                end={12_345}
                 duration={3}
-                delay={0.1}
+                delay={0.5}
               />{' '}
               users{' '}
             </span>
           </Text>
         </HStack>
         <HStack spacing={2}>
-          <Icon as={VscSymbolKeyword} boxSize={6} currentColor />
+          <Icon as={VscSymbolKeyword} boxSize={6} color='current' />
           <Text
             color='fg-muted'
             mt={4}
@@ -62,7 +62,7 @@ const Feature = ({ title, sub, desc, ...rest }) => {
             <span>
               {' '}
               extracted{' '}
-              <CountUp prefix='~ ' start={3562} end={1235079120} duration={6} delay={0.1} />{' '}
+              <CountUp prefix='~ ' start={3562} end={1_235_079_120} duration={6} delay={0.5} />{' '}
               keywords{' '}
             </span>
           </Text>

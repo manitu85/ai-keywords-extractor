@@ -1,16 +1,23 @@
-import { Route, Routes } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
-import { About, AiKeywords, Contact, Home } from '@/pages';
+import { About, AiKeywords, Contact, Home, NotFound } from '@/pages';
 
 export default function Routings() {
+  const location = useLocation();
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/ai-keywords' element={<AiKeywords />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/contact' element={<Contact />} />
-    </Routes>
+    <AnimatePresence mode='wait' initial={false}>
+      <Routes key={location.pathname} location={location}>
+        <Route path='/'>
+          <Route index element={<Home />} />
+          <Route path='/ai-keywords' element={<AiKeywords />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/*' element={<NotFound />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
   );
 }
 
-// Todo: Add animated routes
+// Todo: Add Pricing

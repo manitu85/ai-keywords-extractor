@@ -1,0 +1,8 @@
+import { Stack } from '@chakra-ui';
+import { motion } from 'framer-motion';
+
+const MotionStack = motion(Stack);
+
+export default MotionStack;
+
+// Todo: Make MotionStack func. with staggerChildren animation
