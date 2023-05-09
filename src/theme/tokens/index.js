@@ -4,6 +4,7 @@ const tokens = {
     light: {
       'bg-default': '#023E8A',
       'bg-footer': '#113f66',
+      'fg-footer': '#98f0ff',
       'bg-icon': '#fff',
       'bg-transition': '#2375bd',
       'fg-default': '#dbdbdb', // body text
@@ -14,11 +15,12 @@ const tokens = {
     dark: {
       'bg-default': '#3D348B',
       'bg-footer': '#35155a',
+      'fg-footer': '#bb9bff',
       'bg-icon': '#fff',
       'bg-transition': '#25113d',
       'fg-default': '#F8F9FA', // body text
       'fg-muted': '#cdd6e0',
-      'fg-accent': '#ffc926',
+      'fg-accent': '#fff457',
       'border-top-line': '5px solid #ae90ef'
     }
   }
@@ -35,6 +37,10 @@ export const semanticTokens = {
       'bg-footer': {
         default: tokens.colors.light['bg-footer'],
         _dark: tokens.colors.dark['bg-footer']
+      },
+      'fg-footer': {
+        default: tokens.colors.light['fg-footer'],
+        _dark: tokens.colors.dark['fg-footer']
       },
       'bg-icon': {
         default: tokens.colors.light['bg-icon'],

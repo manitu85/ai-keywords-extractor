@@ -7,7 +7,13 @@ export default function Logo(props) {
       <RouteLink to='/'>
         <Image src='src/assets/bulb-idea.svg' w='40px' h='40px' mr={2} />
       </RouteLink>
-      <Text fontSize='xl' fontWeight='bold' color='fg-accent' textTransform='uppercase'>
+      <Text
+        fontSize='xl'
+        fontWeight='bold'
+        color='fg-accent'
+        textTransform='uppercase'
+        letterSpacing='widest'
+      >
         aikye
       </Text>
     </Flex>

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <MotionBox {...motionProps}>
-        <Flex justify='center' align='center' direction='column'>
+        <Flex justify='center' align='center'>
           <Feature title={FEATURE.title} sub={FEATURE.subtitle} desc={FEATURE.desc} />
         </Flex>
       </MotionBox>

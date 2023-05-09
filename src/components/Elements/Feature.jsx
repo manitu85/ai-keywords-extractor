@@ -61,7 +61,7 @@ const Feature = ({ title, sub, desc, ...rest }) => {
           >
             <span>
               {' '}
-              extracted{' '}
+              ai extracted{' '}
               <CountUp prefix='~ ' start={3562} end={1_235_079_120} duration={6} delay={0.5} />{' '}
               keywords{' '}
             </span>

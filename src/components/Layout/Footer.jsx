@@ -3,8 +3,24 @@ import { Box, Text } from '@chakra-ui/react';
 
 export default function Footer() {
   return (
-    <Box as='footer' w='full' fontWeight='bold' bg='bg-footer'>
-      <Text py={6} fontSize='sm' textAlign='center' color='fg-accent'>
+    <Box
+      as='footer'
+      w='full'
+      fontWeight='medium'
+      bg='bg-footer'
+      pos='sticky'
+      bottom='0'
+      left='0'
+      right='0'
+    >
+      <Text
+        py={6}
+        fontSize='sm'
+        textAlign='center'
+        color='fg-footer'
+        letterSpacing='wider'
+        fontWeight='bold'
+      >
         Copyright &copy; AIKYE {new Date().getFullYear()}{' '}
       </Text>
     </Box>

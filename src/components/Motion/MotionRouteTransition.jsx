@@ -12,8 +12,8 @@ export const MotionRouteTransition = () => {
       initial='hidden'
       animate='visible'
       exit='exit'
-      style={{ originX: isPresent ? 0 : 1 }}
       variants={pageRouteTransition(0.6, 0.4)}
+      style={{ originX: isPresent ? 0 : 1 }}
       pos='fixed'
       top='0'
       left='0'

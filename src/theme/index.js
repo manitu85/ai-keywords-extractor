@@ -6,7 +6,7 @@ import { globalStyles } from './globalStyles';
 import { semanticTokens } from './tokens';
 
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   useSystemColorMode: false,
   cssVarPrefix: 'aikye'
 };

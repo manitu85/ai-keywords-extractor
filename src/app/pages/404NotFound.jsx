@@ -8,15 +8,15 @@ export default function NotFound() {
         display='inline-block'
         as='h2'
         size='3xl'
-        bgGradient='linear(to-r, teal.400, teal.600)'
+        bgGradient='linear(to-r, teal.300, teal.400, teal.600)'
         backgroundClip='text'
       >
         404
       </Heading>
-      <Text fontSize='1.25rem' mt={3} mb={2}>
+      <Text fontSize='2xl' fontWeight='bold' mt={3} mb={2}>
         Page Not Found
       </Text>
-      <Text color='gray.500' mb={6}>
+      <Text color='fg-muted' mb={6}>
         The page you are looking for does not seem to exist
       </Text>
       <Button

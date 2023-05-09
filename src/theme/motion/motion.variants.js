@@ -35,7 +35,7 @@ export const pageRouteTransition = (durationV, durationH) => {
       scaleX: 0,
       transition: {
         type: 'spring',
-        bounce: 0.25,
+        bounce: 0.2,
         duration: durationV, // duration: 0.8,
         ease: 'circOut'
       }
@@ -44,7 +44,7 @@ export const pageRouteTransition = (durationV, durationH) => {
       scaleX: 1,
       transition: {
         type: 'spring',
-        bounce: 0.25,
+        bounce: 0.2,
         duration: durationH, // duration: 0.6,
         ease: 'circIn'
       }
