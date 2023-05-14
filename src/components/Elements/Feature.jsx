@@ -1,27 +1,39 @@
 import { Box, Flex, Heading, HStack, Icon, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { RiUserStarFill } from 'react-icons/ri';
 import { VscSymbolKeyword } from 'react-icons/vsc';
+
+import { staggerItems, staggerProps } from '@/theme/motion/motion.variants';
+
+import { MotionBox } from '../Motion';
 
 const headingGradient = 'linear(to-l, #fff, #eefa94)';
 
 const Feature = ({ title, sub, desc, ...rest }) => {
   return (
     <Flex p={5} w={750} direction='column' justify='flexStart' gap={4} {...rest}>
-      <Box>
+      <MotionBox {...staggerProps}>
         <Heading
-          as='h1'
+          as={motion.h1}
           fontSize='5xl'
           bgGradient={headingGradient}
           bgClip='text'
           fontFamily='"Open Sans"'
+          variants={staggerItems}
         >
           {title}
         </Heading>
-        <Heading as='h2' fontSize='2xl' bgGradient={headingGradient} bgClip='text'>
+        <Heading
+          as={motion.h2}
+          fontSize='2xl'
+          bgGradient={headingGradient}
+          bgClip='text'
+          variants={staggerItems}
+        >
           {sub}
         </Heading>
-      </Box>
+      </MotionBox>
       <Text text='fg-accent' mt={4}>
         {desc}
       </Text>

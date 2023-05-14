@@ -5,7 +5,12 @@ const ListItemComponent = ({ title }) => {
   return (
     <ListItem display='inline-flex' alignItems='center'>
       {' '}
-      <ListIcon as={BsFillPatchCheckFill} color='green.500' />
+      <ListIcon
+        as={BsFillPatchCheckFill}
+        color='green.500'
+        alignSelf='flex-start'
+        transform='translateY(5px)'
+      />
       {title}{' '}
     </ListItem>
   );
