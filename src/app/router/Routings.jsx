@@ -10,14 +10,16 @@ export default function Routings() {
       <Routes key={location.pathname} location={location}>
         <Route path='/'>
           <Route index element={<Home />} />
-          <Route path='/ai-keywords' element={<AiKeywords />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/*' element={<NotFound />} />
+          <Route path='ai-keywords' element={<AiKeywords />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
     </AnimatePresence>
   );
 }
 
-// Todo: Add Pricing
+// Todo: Add Pricing route at the end
+//* Fix: Unmount animations for Suspense Fallback component?
+// https://github.com/framer/motion/issues/1193

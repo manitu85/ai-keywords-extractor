@@ -1,4 +1,5 @@
 import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import { Link as RouteLink } from 'react-router-dom';
 
 export default function NotFound() {
@@ -20,13 +21,16 @@ export default function NotFound() {
         The page you are looking for does not seem to exist
       </Text>
       <Button
+        as={motion.button}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 300, ease: 'easeIn' }}
         colorScheme='teal'
         bgGradient='linear(to-r, teal.400, teal.500, teal.600)'
         color='white'
         variant='solid'
         py={2}
         px={4}
-        borderRadius='sm'
+        borderRadius='xs'
       >
         <RouteLink to='/'>Go to Home</RouteLink>
       </Button>

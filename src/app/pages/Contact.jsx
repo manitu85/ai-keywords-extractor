@@ -5,6 +5,7 @@ import {
   Container,
   Flex,
   FormControl,
+  FormHelperText,
   FormLabel,
   Heading,
   Input,
@@ -19,14 +20,14 @@ import {
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 
+import { MotionRouteTransition } from '@/components/Motion';
 import MotionBox from '@/components/Motion/MotionBox';
-import { MotionRouteTransition } from '@/components/Motion/MotionRouteTransition';
-import { motionProps } from '@/theme/motion/motion.variants';
+import { routeProps } from '@/theme/motion/motion.variants';
 
 export default function Contact() {
   return (
     <>
-      <MotionBox {...motionProps}>
+      <MotionBox {...routeProps}>
         <Container maxW='full' mt={0} centerContent overflow='hidden'>
           <Flex>
             <Box
@@ -84,6 +85,7 @@ export default function Contact() {
                                 borderRadius: 'gray.300'
                               }}
                               placeholder='message'
+                              _placeholder={{ opacity: 0.6, color: 'base.400' }}
                             />
                           </FormControl>
                           <FormControl id='name' float='right'>
@@ -98,6 +100,9 @@ export default function Contact() {
                             >
                               Send Message
                             </Button>
+                            <FormHelperText color='base.500'>
+                              *We will never share your data.
+                            </FormHelperText>
                           </FormControl>
                         </VStack>
                       </Box>
@@ -113,3 +118,6 @@ export default function Contact() {
     </>
   );
 }
+
+// Todo: Try Chakra UI + Formik to implement
+// https://chakra-ui.com/getting-started/with-formik

@@ -2,20 +2,33 @@ import { Container, Heading, List, Text } from '@chakra-ui/react';
 import { ListItem } from '@Elements';
 import Technologies from '@Elements/Technologies';
 
+import { MotionRouteTransition } from '@/components/Motion';
 import MotionBox from '@/components/Motion/MotionBox';
-import { MotionRouteTransition } from '@/components/Motion/MotionRouteTransition';
-import { LIST_ITEMS } from '@/config';
-import { motionProps } from '@/theme/motion/motion.variants';
+import MotionProgressBar from '@/components/Motion/MotionProgressBar';
+import { routeProps } from '@/theme/motion/motion.variants';
+import { LIST_CASES, LIST_ITEMS } from '@/utils';
 
 export default function About() {
   return (
     <>
-      <MotionBox {...motionProps}>
+      <MotionBox {...routeProps}>
+        <MotionProgressBar />
         <Container maxW='3xl'>
           <Heading as='h2' mb={8} algin='left' fontSize='2rem'>
             {' '}
             What is a keyword extractor?
           </Heading>
+          <Text mb={4}>
+            Keyword extraction, also known as keyword detection or keyword analysis, is a text
+            analysis technique that automatically extracts the most used and most important words
+            and expressions from a text. It helps summarize the content of texts and recognize the
+            main topics discussed.
+          </Text>
+          <Text mb={4}>
+            Keyword extraction uses machine learning Artificial Intelligence (AI) with Natural
+            Language Processing (NLP) to break down human language so that it can be understood and
+            analyzed by machines.
+          </Text>
           <Text mb={6}>
             Keyword Extractor is an AI-powered keyword tool that can analyze any text and extract
             the most relevant keywords for you. It uses artificial intelligence to understand the
@@ -28,10 +41,10 @@ export default function About() {
             ))}
           </List>
           <Heading as='h2' mb={4} algin='left' fontSize='2rem'>
-            Advantages of Keyword Extraction
+            Advantages of keyword extraction
           </Heading>
           <Text mb='2rem'>
-            Thanks to keyword extraction, organisations are able to automate some of their most
+            Thanks to keyword extraction, organizations are able to automate some of their most
             routine tasks, saving valuable time and resources while analyzing data. Businesses can
             also use keyword extraction to get valuable insights about their products or services
             and use them to make data-driven decisions.
@@ -60,6 +73,18 @@ export default function About() {
             customer support tickets in real-time, and get insights about what’s being said about
             your product as they happen and follow them over time.
           </Text>
+          <Heading as='h2' mb={4} algin='left' fontSize='2rem'>
+            Keyword extraction API use cases
+          </Heading>
+          <Text mb={6}>
+            You can use Keyword extraction in numerous fields. Here are some examples of common use
+            cases:
+          </Text>
+          <List spacing={2} mb='2rem'>
+            {LIST_CASES.map(({ id, text }) => (
+              <ListItem key={id} title={text} />
+            ))}
+          </List>
           <Technologies />
         </Container>
       </MotionBox>
@@ -67,3 +92,5 @@ export default function About() {
     </>
   );
 }
+
+// Todo: useScroll hook
