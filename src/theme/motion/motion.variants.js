@@ -19,7 +19,7 @@ export const routeVariantsContainer = {
   }
 };
 
-export const motionProps = {
+export const routeProps = {
   initial: 'hidden',
   animate: 'visible',
   exit: 'exit',
@@ -50,4 +50,60 @@ export const pageRouteTransition = (durationV, durationH) => {
       }
     }
   };
+};
+
+// Stagger items variants
+export const staggerContainer = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2
+    }
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+      delayChildren: 0.5
+    }
+  }
+  // exit: { transition: { staggerChildren: 0.1 } }
+};
+
+export const staggerProps = {
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'exit',
+  variants: staggerContainer
+};
+
+const easing = [0.175, 0.85, 0.42, 0.96];
+
+export const staggerItems = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.3,
+      duration: 0.3,
+      ease: easing,
+      type: 'spring',
+      stiffness: 50,
+      damping: 10,
+      mass: 0.5,
+      velocity: 10
+    }
+  }
+  // exit: {
+  //   scale: 0.6,
+  //   y: -200,
+  //   opacity: 0,
+  //   transition: { duration: 0.1, ease: easing }
+  // }
 };

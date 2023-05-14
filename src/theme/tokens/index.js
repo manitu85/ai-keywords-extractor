@@ -10,7 +10,7 @@ const tokens = {
       'fg-default': '#dbdbdb', // body text
       'fg-muted': '#cbdff5',
       'fg-accent': '#FFEA00',
-      'border-top-line': '5px solid #90e0ef'
+      'top-line': '5px solid #90e0ef'
     },
     dark: {
       'bg-default': '#3D348B',
@@ -21,52 +21,55 @@ const tokens = {
       'fg-default': '#F8F9FA', // body text
       'fg-muted': '#cdd6e0',
       'fg-accent': '#fff457',
-      'border-top-line': '5px solid #ae90ef'
+      'top-line': '5px solid #ae90ef'
     }
   }
 };
+
+//* destructured theme values
+const { light, dark } = tokens.colors;
 
 //* Chakra UI feature
 export const semanticTokens = {
   semanticTokens: {
     colors: {
       'bg-default': {
-        default: tokens.colors.light['bg-default'],
-        _dark: tokens.colors.dark['bg-default']
+        default: light['bg-default'],
+        _dark: dark['bg-default']
       },
       'bg-footer': {
-        default: tokens.colors.light['bg-footer'],
-        _dark: tokens.colors.dark['bg-footer']
+        default: light['bg-footer'],
+        _dark: dark['bg-footer']
       },
       'fg-footer': {
-        default: tokens.colors.light['fg-footer'],
-        _dark: tokens.colors.dark['fg-footer']
+        default: light['fg-footer'],
+        _dark: dark['fg-footer']
       },
       'bg-icon': {
-        default: tokens.colors.light['bg-icon'],
-        _dark: tokens.colors.dark['bg-icon']
+        default: light['bg-icon'],
+        _dark: dark['bg-icon']
       },
       'bg-transition': {
-        default: tokens.colors.light['bg-transition'],
-        _dark: tokens.colors.dark['bg-transition']
+        default: light['bg-transition'],
+        _dark: dark['bg-transition']
       },
       'fg-default': {
-        default: tokens.colors.light['fg-default'],
-        _dark: tokens.colors.dark['fg-default']
+        default: light['fg-default'],
+        _dark: dark['fg-default']
       },
       'fg-muted': {
-        default: tokens.colors.light['fg-muted'],
-        _dark: tokens.colors.dark['fg-muted']
+        default: light['fg-muted'],
+        _dark: dark['fg-muted']
       },
       'fg-accent': {
-        default: tokens.colors.light['fg-accent'],
-        _dark: tokens.colors.dark['fg-accent']
+        default: light['fg-accent'],
+        _dark: dark['fg-accent']
       }
     },
     borders: {
       'border-top-line': {
-        default: tokens.colors.light['border-top-line'],
-        _dark: tokens.colors.dark['border-top-line']
+        default: light['top-line'],
+        _dark: dark['top-line']
       }
     },
     shadows: {},
