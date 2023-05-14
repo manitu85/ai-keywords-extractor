@@ -4,7 +4,7 @@ import { pageRouteTransition } from '@/theme/motion/motion.variants';
 
 import MotionBox from './MotionBox';
 
-export const MotionRouteTransition = () => {
+const MotionRouteTransition = () => {
   const isPresent = useIsPresent();
   return (
     <MotionBox
@@ -24,6 +24,8 @@ export const MotionRouteTransition = () => {
     />
   );
 };
+
+export default MotionRouteTransition;
 
 // useIsPresent(): boolean
 // Similar to usePresence, except useIsPresent simply returns whether or not the component is
