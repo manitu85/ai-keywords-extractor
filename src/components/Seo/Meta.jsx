@@ -17,7 +17,7 @@ const Meta = () => {
       <meta name='mobile-web-app-capable' content='yes' />
       <meta name='theme-color' content='#1cb5e0' />
 
-      <link rel='shortcut icon' href='/assets/favicon.svg' />
+      <link rel='shortcut icon' href='/bulb-idea.svg' />
       <link rel='manifest' href='/manifest.json' />
     </Helmet>
   );

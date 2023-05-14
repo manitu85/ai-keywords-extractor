@@ -9,8 +9,9 @@ const ThemeToggle = () => {
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <IconContext.Provider value={{ size: '24px', color: '#fff' }}>
       <IconButton
+        color='current'
         variant='outline'
-        aria-label='theme toggle'
+        aria-label={`Switch to ${colorMode} mode`}
         icon={colorMode === 'light' ? <RiMoonFill /> : <RiSunLine />}
         onClick={toggleColorMode}
         _hover={{ background: 'none' }}
