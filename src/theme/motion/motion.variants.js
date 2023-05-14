@@ -26,7 +26,7 @@ export const routeProps = {
   variants: routeVariantsContainer
 };
 
-export const pageRouteTransition = (durationV, durationH) => {
+export const pageRouteTransition = (durationVisible, durationHidden) => {
   return {
     hidden: {
       scaleX: 1
@@ -36,7 +36,7 @@ export const pageRouteTransition = (durationV, durationH) => {
       transition: {
         type: 'spring',
         bounce: 0.2,
-        duration: durationV, // duration: 0.8,
+        duration: durationVisible, // duration: 0.8,
         ease: 'circOut'
       }
     },
@@ -45,7 +45,7 @@ export const pageRouteTransition = (durationV, durationH) => {
       transition: {
         type: 'spring',
         bounce: 0.2,
-        duration: durationH, // duration: 0.6,
+        duration: durationHidden, // duration: 0.6,
         ease: 'circIn'
       }
     }
@@ -69,13 +69,11 @@ export const staggerContainer = {
       delayChildren: 0.5
     }
   }
-  // exit: { transition: { staggerChildren: 0.1 } }
 };
 
 export const staggerProps = {
   initial: 'hidden',
   animate: 'visible',
-  exit: 'exit',
   variants: staggerContainer
 };
 
@@ -100,10 +98,4 @@ export const staggerItems = {
       velocity: 10
     }
   }
-  // exit: {
-  //   scale: 0.6,
-  //   y: -200,
-  //   opacity: 0,
-  //   transition: { duration: 0.1, ease: easing }
-  // }
 };
