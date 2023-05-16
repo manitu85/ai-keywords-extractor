@@ -17,5 +17,3 @@ export const axiosClient = axios.create({
 //* Alter defaults after instance has been created
 // eslint-disable-next-line dot-notation
 // axiosClient.defaults.headers.common['Authorization'] = OPENAI_API_KEY;
-
-// Todo: find axios cache adapter

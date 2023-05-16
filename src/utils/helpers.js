@@ -1,4 +1,4 @@
-// Simplified uid func. > id-timestamp-hexadecimalString
+// Simple generate unique id func. > id-timestamp-hexadecimalString
 export const uid = () => `id-${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
 
 // Simple scroll to top func.

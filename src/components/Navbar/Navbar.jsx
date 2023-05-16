@@ -1,6 +1,8 @@
 import { Box, HStack, Text } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 
+import { NAV_LINKS } from '@/utils';
+
 const NavLink = ({ text }) => (
   <Box as='li' fontWeight='bold'>
     <Text fontSize='sm' textTransform='uppercase'>
@@ -12,15 +14,13 @@ const NavLink = ({ text }) => (
 export default function Navbar() {
   return (
     <HStack spacing={6} as='nav'>
-      <RouteLink to='/ai-keywords'>
-        <NavLink text='AI Keywords' />
-      </RouteLink>
-      <RouteLink to='/about'>
-        <NavLink text='About' />
-      </RouteLink>
-      <RouteLink to='/contact'>
-        <NavLink text='Contact' />
-      </RouteLink>
+      {NAV_LINKS.map(({ id, route, link }) => (
+        <RouteLink key={id} to={route}>
+          <NavLink text={link} />
+        </RouteLink>
+      ))}
     </HStack>
   );
 }
+
+// Todo: Add responsive styles to navbar

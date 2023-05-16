@@ -8,6 +8,7 @@ import customTheme from '@/theme';
 
 import App from './app/App';
 
+// chakra toast
 const { ToastContainer } = createStandaloneToast();
 
 // eslint-disable-next-line unicorn/prefer-query-selector

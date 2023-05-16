@@ -92,5 +92,3 @@ export default function About() {
     </>
   );
 }
-
-// Todo: useScroll hook

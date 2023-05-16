@@ -23,6 +23,8 @@ export default function ExtractKeywords() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [keywords, setKeywords] = useState([]);
+  // const [voiceTone, setVoiceTone] = useState('');
+  // const [useCase, setUseCase] = useState('');
   const [loading, setLoading] = useState(false);
 
   const extractKeywords = async prompt => {

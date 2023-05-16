@@ -1,13 +1,21 @@
+/* eslint-disable unicorn/consistent-function-scoping */
 import {
   Button,
+  chakra,
   FormControl,
   FormHelperText,
   FormLabel,
+  HStack,
+  Select,
   Textarea,
   useToast
 } from '@chakra-ui/react';
+import { SelectOptions } from '@Elements';
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { MdArrowDropDown } from 'react-icons/md';
+
+import { AI_TONE, AI_USE_CASES } from '@/utils';
 
 const TextInput = ({ extractKeywords }) => {
   // const [text, setText] = useState('');
@@ -15,7 +23,7 @@ const TextInput = ({ extractKeywords }) => {
   // if (text === '') {}
   // extractKeywords(text);
   // value={text}
-  // onChange={e => setText(e.target.value)}
+  // onChange={e => setText(e.target.value)} >> handleChange
   // const handleSubmit = () => (text === '' ? errorToast() : successToast());
 
   // Optimized: useRef approach: Avoid multiple renders when typing, only the end input value is needed.
@@ -36,8 +44,8 @@ const TextInput = ({ extractKeywords }) => {
   });
 
   const handleSubmit = e => {
-    const inputValue = inputTextElement.current?.value;
     e.preventDefault(); // add form submit
+    const inputValue = inputTextElement.current?.value;
     if (inputValue === '') {
       errorToast();
     } else {
@@ -45,6 +53,10 @@ const TextInput = ({ extractKeywords }) => {
       extractKeywords(inputValue);
     }
   };
+
+  // Todo: useState for both, and detach from input because is same for all cases (text is a text)
+  const handleOptionsChange = e => console.log(e.target.value);
+  const handleUseCasesChange = e => console.log(e.target.value);
 
   return (
     <FormControl>
@@ -55,9 +67,42 @@ const TextInput = ({ extractKeywords }) => {
         fontSize='0.9em'
         color='fg-footer'
       >
+        <HStack spacing={2}>
+          <Select
+            icon={<MdArrowDropDown />}
+            placeholder='Select tone of voice'
+            bg='bg-footer'
+            borderColor='fg-footer'
+            color='fg-footer'
+            variant='outline'
+            onChange={handleOptionsChange}
+          >
+            {AI_TONE.map(({ id, value, option }) => (
+              <chakra.option key={id} value={value} bg='bg-footer !important'>
+                {option}
+              </chakra.option>
+            ))}
+          </Select>
+          <Select
+            icon={<MdArrowDropDown />}
+            placeholder='Choose use case'
+            bg='bg-footer'
+            borderColor='fg-footer'
+            color='fg-footer'
+            variant='outline'
+            onChange={handleUseCasesChange}
+          >
+            {AI_USE_CASES.map(({ id, value, option }) => (
+              <chakra.option key={id} value={value} bg='bg-footer !important'>
+                {option}
+              </chakra.option>
+            ))}
+          </Select>
+        </HStack>
         <Textarea
-          id='ai-keywords'
           ref={inputTextElement}
+          id='ai-keywords'
+          name='ai-keywords'
           color='fg-default'
           bg='bg-footer'
           p={2}
@@ -92,4 +137,6 @@ const TextInput = ({ extractKeywords }) => {
 
 export default TextInput;
 
-// Todo: instead use react-tostafy lib
+// Todo: Keywords input 0/60 (useful tips category)
+// Todo: Refresh button max 3x times along side input button by IP address
+// Todo: Make OptionsInput.jsx detached file

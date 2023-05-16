@@ -55,3 +55,80 @@ export const LIST_CASES = [
     text: 'Human Resources: Analyze resumes and job postings to identify important skills and qualifications for a particular job or industry.'
   }
 ];
+
+export const NAV_LINKS = [
+  {
+    id: uid(),
+    route: '/ai-keywords',
+    link: 'AI Keywords'
+  },
+  {
+    id: uid(),
+    route: '/about',
+    link: 'About'
+  },
+  {
+    id: uid(),
+    route: '/contact',
+    link: 'Contact'
+  }
+];
+
+export const AI_TONE = [
+  {
+    id: uid(),
+    value: 'assertive',
+    option: 'Assertive'
+  },
+  {
+    id: uid(),
+    value: 'formal',
+    option: 'Formal'
+  },
+  {
+    id: uid(),
+    value: 'convincing',
+    option: 'Convincing'
+  },
+  {
+    id: uid(),
+    value: 'compassionate',
+    option: 'Compassionate'
+  },
+  {
+    id: uid(),
+    value: 'friendly',
+    option: 'Friendly'
+  },
+  {
+    id: uid(),
+    value: 'casual',
+    option: 'Casual'
+  },
+  {
+    id: uid(),
+    value: 'professional',
+    option: 'Professional'
+  }
+];
+export const AI_USE_CASES = [
+  {
+    id: uid(),
+    value: 'keywords extractor',
+    option: 'Keywords extractor'
+  },
+  {
+    id: uid(),
+    value: 'keywords generator',
+    option: 'Generate keywords'
+  },
+  {
+    id: uid(),
+    value: 'hashtags generator',
+    option: 'Hashtags generator'
+  }
+];
+
+// Examples:
+// Add Select tone of voice for your keywords: options (professional, assertive, casual, friendly, compassionate, convincing, formal)
+// Add choose use case: (keywords extractor, keywords generator, generate hashtags article/title generator, ads generator, summarizer etc.)
