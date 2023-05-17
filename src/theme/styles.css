@@ -1,0 +1,25 @@
+/* // CSS Helper for chakra active link */
+:root {
+  --light-link-color: #aef3ff;
+  --dark-link-color: #cdb6ff;
+}
+
+html[data-theme='light'] .selected {
+  color: var(--light-link-color);
+}
+
+html[data-theme='dark'] .selected {
+  color: var(--dark-link-color);
+}
+
+.selected::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  width: 20px;
+  height: 3px;
+  margin: auto;
+  background-color: var(--dark-link-color);
+  transition: all 0.3s ease 0s;
+}
