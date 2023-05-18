@@ -1,3 +1,6 @@
+import { BsPatchQuestion, BsRobot } from 'react-icons/bs';
+import { SiMinutemailer } from 'react-icons/si';
+
 import { uid } from '@/utils';
 
 export const FEATURE = {
@@ -60,16 +63,19 @@ export const NAV_LINKS = [
   {
     id: uid(),
     route: '/ai-keywords',
+    icon: BsRobot,
     link: 'AI Keywords'
   },
   {
     id: uid(),
     route: '/about',
+    icon: BsPatchQuestion,
     link: 'About'
   },
   {
     id: uid(),
     route: '/contact',
+    icon: SiMinutemailer,
     link: 'Contact'
   }
 ];
@@ -82,8 +88,8 @@ export const AI_TONE = [
   },
   {
     id: uid(),
-    value: 'formal',
-    option: 'Formal'
+    value: 'casual',
+    option: 'Casual'
   },
   {
     id: uid(),
@@ -92,8 +98,18 @@ export const AI_TONE = [
   },
   {
     id: uid(),
-    value: 'compassionate',
-    option: 'Compassionate'
+    value: 'creative',
+    option: 'Creative'
+  },
+  {
+    id: uid(),
+    value: 'descriptive',
+    option: 'Descriptive'
+  },
+  {
+    id: uid(),
+    value: 'formal',
+    option: 'Formal'
   },
   {
     id: uid(),
@@ -102,13 +118,13 @@ export const AI_TONE = [
   },
   {
     id: uid(),
-    value: 'casual',
-    option: 'Casual'
+    value: 'professional',
+    option: 'Professional'
   },
   {
     id: uid(),
-    value: 'professional',
-    option: 'Professional'
+    value: 'thoughtful',
+    option: 'Thoughtful'
   }
 ];
 export const AI_USE_CASES = [

@@ -18,16 +18,21 @@ import { OPENAI_API_KEY } from '@/config';
 import { routeProps } from '@/theme/motion/motion.variants';
 import { axiosClient } from '@/utils';
 
+const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
+
 export default function ExtractKeywords() {
   //* chakra hook
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [keywords, setKeywords] = useState([]);
-  // const [voiceTone, setVoiceTone] = useState('');
+  // const [voiceStyle, setVoiceStyle] = useState('');
   // const [useCase, setUseCase] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const extractKeywords = async prompt => {
+  // const generateKeywords = async (prompt, voiceStyle) => {};
+  // const generateHashtags = async (prompt, voiceStyle) => {};
+
+  const extractKeywords = async (prompt, voiceStyle) => {
     setLoading(true);
     onOpen(true);
 
@@ -39,7 +44,7 @@ export default function ExtractKeywords() {
       //* Data to be sent as the request body
       data: {
         model: 'text-davinci-003',
-        prompt: `Act as persona of Marketing SEO expert with 5 years of experience. Extract keywords from this text and make the first letter of every word uppercase and separate with commas:\n\n ${prompt} &nbsp;`,
+        prompt: `Take on the persona of expert SEO Marketing with 5 years of experience. The writing style is ${voiceStyle}. Extract keywords from this text and make the first letter of every word uppercase and separate with commas:\n\n ${prompt} &nbsp; The output should include relevant 10 keywords at least. `,
         temperature: 0.5,
         max_tokens: 60, // test with 30
         top_p: 1,
@@ -71,7 +76,12 @@ export default function ExtractKeywords() {
           <VStack spacing={1}>
             <HStack>
               <Image src='/src/assets/bulb.svg' w='4rem' h='4rem' mr={2} />
-              <Heading as='h1' color='white' fontSize='2.5rem' fontFamily='"Open Sans"'>
+              <Heading
+                as='h1'
+                color='white'
+                fontSize={headerResponsiveSizes}
+                fontFamily='"Open Sans"'
+              >
                 AI Extracted Keywords
               </Heading>
             </HStack>
@@ -80,9 +90,9 @@ export default function ExtractKeywords() {
               <Text>Powered by Open AI</Text>
             </HStack>
           </VStack>
-          <Text align='center' py={8} fontSize='1.15rem' lineHeight='1.25' color='base.200'>
+          <Text align='left' py={8} fontSize='1.05rem' lineHeight='1.25' color='base.200'>
             Keyword Extractor is an AI-powered (Chat GPT-3.5) keyword tool that can analyze any text
-            and extract the most relevant keywords for you.
+            and extract the most relevant keywords, generate keywords and make hashtags for you.
           </Text>
           <TextInput extractKeywords={extractKeywords} />
           <KeywordsModal keywords={keywords} loading={loading} isOpen={isOpen} onClose={onClose} />

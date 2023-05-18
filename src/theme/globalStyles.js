@@ -11,7 +11,6 @@ export const globalStyles = {
         borderTop: 'border-top-line'
         // overflowY: 'hidden'
       },
-      //  h1: {},
       li: {
         listStyle: 'none'
       }

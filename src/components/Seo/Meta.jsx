@@ -7,7 +7,7 @@ const DESCRIPTION =
 const Meta = () => {
   return (
     <Helmet>
-      <title>Create Vite React Chakra UI App</title>
+      <title>AIKYE</title>
       <meta name='description' content={DESCRIPTION} />
       <meta name='application-name' content={APP_NAME} />
       <meta name='apple-mobile-web-app-capable' content='yes' />

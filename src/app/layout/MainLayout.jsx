@@ -1,6 +1,6 @@
 import { Box, Container, useColorMode } from '@chakra-ui/react';
 
-import MainContainer from '@/components/Elements/Container';
+import MainContainer from '@/components/_Elements/Container';
 import Footer from '@/components/Layout/Footer';
 import Header from '@/components/Layout/Header';
 import Meta from '@/components/Seo/Meta';

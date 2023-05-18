@@ -22,7 +22,7 @@ export default function Footer() {
     >
       <Text
         py={6}
-        fontSize='sm'
+        fontSize={['0.75em', '0.75em', '0.85em']}
         textAlign='center'
         color='fg-footer'
         letterSpacing='wider'

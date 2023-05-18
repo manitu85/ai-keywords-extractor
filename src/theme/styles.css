@@ -12,7 +12,19 @@ html[data-theme='dark'] .selected {
   color: var(--dark-link-color);
 }
 
-.selected::before {
+html[data-theme='light'] .selected::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  width: 20px;
+  height: 3px;
+  margin: auto;
+  background-color: var(--light-link-color);
+  transition: all 0.3s ease;
+  /* opacity: 0; */
+}
+html[data-theme='dark'] .selected::before {
   content: '';
   position: absolute;
   right: 0;
@@ -21,5 +33,13 @@ html[data-theme='dark'] .selected {
   height: 3px;
   margin: auto;
   background-color: var(--dark-link-color);
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease;
+  /* opacity: 0; */
 }
+
+/* html[data-theme='light'] .selected:hover::before {
+  opacity: 1;
+}
+html[data-theme='dark'] .selected:hover::before {
+  opacity: 1;
+} */

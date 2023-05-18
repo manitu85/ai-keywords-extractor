@@ -8,13 +8,15 @@ import MotionProgressBar from '@/components/Motion/MotionProgressBar';
 import { routeProps } from '@/theme/motion/motion.variants';
 import { LIST_CASES, LIST_ITEMS } from '@/utils';
 
+const headerResponsiveSizes = ['1.5rem', '1.75rem', '2rem'];
+
 export default function About() {
   return (
     <>
       <MotionBox {...routeProps}>
         <MotionProgressBar />
         <Container maxW='3xl'>
-          <Heading as='h2' mb={8} algin='left' fontSize='2rem'>
+          <Heading as='h2' mb={8} algin='left' fontSize={headerResponsiveSizes}>
             {' '}
             What is a keyword extractor?
           </Heading>
@@ -40,7 +42,7 @@ export default function About() {
               <ListItem key={id} title={text} />
             ))}
           </List>
-          <Heading as='h2' mb={4} algin='left' fontSize='2rem'>
+          <Heading as='h2' mb={4} algin='left' fontSize={headerResponsiveSizes}>
             Advantages of keyword extraction
           </Heading>
           <Text mb='2rem'>
@@ -49,7 +51,7 @@ export default function About() {
             also use keyword extraction to get valuable insights about their products or services
             and use them to make data-driven decisions.
           </Text>
-          <Heading as='h3' mb={4} fontSize='1.5rem'>
+          <Heading as='h3' mb={4} fontSize={headerResponsiveSizes}>
             Scalability
           </Heading>
           <Text mb={6}>
@@ -58,14 +60,14 @@ export default function About() {
             time-consuming. Automating this task gives you the freedom to concentrate on other parts
             of your job.
           </Text>
-          <Heading as='h3' mb={4} fontSize='1.5rem'>
+          <Heading as='h3' mb={4} fontSize={headerResponsiveSizes}>
             Consistent criteria
           </Heading>
           <Text mb={6}>
             Keyword extraction acts based on rules and predefined parameters. You don’t have to deal
             with inconsistencies, which are common in manual text analysis.
           </Text>
-          <Heading as='h3' mb={4} fontSize='1.5rem'>
+          <Heading as='h3' mb={4} fontSize={headerResponsiveSizes}>
             Real-time analysis
           </Heading>
           <Text mb={6}>
@@ -73,7 +75,7 @@ export default function About() {
             customer support tickets in real-time, and get insights about what’s being said about
             your product as they happen and follow them over time.
           </Text>
-          <Heading as='h2' mb={4} algin='left' fontSize='2rem'>
+          <Heading as='h2' mb={4} algin='left' fontSize={headerResponsiveSizes}>
             Keyword extraction API use cases
           </Heading>
           <Text mb={6}>

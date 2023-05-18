@@ -4,7 +4,7 @@ import { Logo, Navbar, ThemeToggle } from '@/components';
 
 export default function Header() {
   return (
-    <Container width='3xl'>
+    <Container>
       <HStack justify='space-between' align='center' flexWrap='wrap'>
         <Logo />
         <Navbar />

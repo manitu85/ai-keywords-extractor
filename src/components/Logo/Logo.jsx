@@ -8,7 +8,7 @@ export default function Logo(props) {
         <HStack>
           <Image src='src/assets/bulb-idea.svg' w='40px' h='40px' />
           <Text
-            fontSize='xl'
+            fontSize={['md', 'md', 'xl']}
             fontWeight='bold'
             color='fg-accent'
             textTransform='uppercase'

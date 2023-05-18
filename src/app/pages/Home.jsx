@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import Feature from '@/components/Elements/Feature';
+import Feature from '@/components/_Elements/Feature';
 import { MotionRouteTransition } from '@/components/Motion';
 import MotionBox from '@/components/Motion/MotionBox';
 import { routeProps } from '@/theme/motion/motion.variants';
