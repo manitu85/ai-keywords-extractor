@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, HStack, Icon, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, HStack, Icon, Spacer, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { RiUserStarFill } from 'react-icons/ri';
@@ -8,28 +8,28 @@ import { staggerItems, staggerProps } from '@/theme/motion/motion.variants';
 
 import { MotionBox } from '../Motion';
 
-const headingGradient = 'linear(to-l, #fff, #eefa94)';
+export const headingGradient = 'linear(to-r, #ffffb7, #fff192,#ffea61 ,#FFFF00,#FFD700)';
 
-const Feature = ({ title, sub, desc, ...rest }) => {
+function Feature({ title, sub, desc, ...rest }) {
   return (
-    <Flex p={[10, 8]} maxW={750} direction='column' justify='flexStart' gap={4} {...rest}>
+    <Flex p={[10, 8]} maxW={800} direction='column' justify='flexStart' gap={4} {...rest}>
       <MotionBox {...staggerProps}>
         <Heading
           as={motion.h1}
-          fontSize={['4xl', '4xl', '5xl']}
+          variants={staggerItems}
+          fontSize={{ base: '4xl', md: '2.75rem' }}
           bgGradient={headingGradient}
           bgClip='text'
           fontFamily='"Open Sans"'
-          variants={staggerItems}
         >
           {title}
         </Heading>
         <Heading
           as={motion.h2}
+          variants={staggerItems}
           fontSize={['xl', '2xl']}
           bgGradient={headingGradient}
           bgClip='text'
-          variants={staggerItems}
         >
           {sub}
         </Heading>
@@ -61,6 +61,7 @@ const Feature = ({ title, sub, desc, ...rest }) => {
             </span>
           </Text>
         </HStack>
+        <Spacer />
         <HStack spacing={2}>
           <Icon as={VscSymbolKeyword} boxSize={6} color='current' />
           <Text
@@ -82,6 +83,8 @@ const Feature = ({ title, sub, desc, ...rest }) => {
       </Flex>
     </Flex>
   );
-};
+}
 
 export default Feature;
+
+// Todo: Depart in two components (FeatureCounter)

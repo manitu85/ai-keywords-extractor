@@ -7,6 +7,7 @@ const MainContainer = ({ children }) => {
       direction='column'
       justify='center'
       align='center'
+      width='full'
       minH={[
         'calc(100vh - 11.9rem)',
         'calc(100vh - 12rem)',
@@ -14,7 +15,7 @@ const MainContainer = ({ children }) => {
         'calc(100vh - 13.1rem)'
       ]}
       mx='auto'
-      width='full'
+      py={0}
     >
       {children}
     </Flex>
