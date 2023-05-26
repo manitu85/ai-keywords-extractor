@@ -5,7 +5,7 @@ const tokens = {
       'bg-default': '#023E8A',
       'bg-footer': '#113f66',
       'fg-footer': '#98f0ff',
-      'bg-icon': '#fff',
+      'bg-icon': '#a1f0fe',
       'bg-transition': '#2375bd',
       'fg-default': '#dbdbdb', // body text
       'fg-muted': '#cbdff5',
@@ -16,7 +16,7 @@ const tokens = {
       'bg-default': '#3D348B',
       'bg-footer': '#35155a',
       'fg-footer': '#bb9bff',
-      'bg-icon': '#fff',
+      'bg-icon': '#c1a4ff',
       'bg-transition': '#25113d',
       'fg-default': '#F8F9FA', // body text
       'fg-muted': '#cdd6e0',

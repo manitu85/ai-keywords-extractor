@@ -1,12 +1,17 @@
-import { BsPatchQuestion, BsRobot } from 'react-icons/bs';
+/* eslint-disable sonarjs/no-duplicate-string */
+import { BsPatchQuestion, BsRobot, BsTagsFill } from 'react-icons/bs';
+import { FaQuoteLeft } from 'react-icons/fa';
+import { GiCrossedSwords, GiStripedSword, GiSwordsEmblem, GiSwordSlice } from 'react-icons/gi';
+import { MdOutlineSubtitles, MdOutlineSummarize } from 'react-icons/md';
 import { SiMinutemailer } from 'react-icons/si';
 
 import { uid } from '@/utils';
 
 export const FEATURE = {
-  title: 'AI Keyword Extractor ',
-  subtitle: ' A Smart, Automatic, Fast and Lightweight',
-  desc: 'Keyword Extractor is an AI-powered (Chat GPT-3.5) keyword tool that can analyze any text and extract the most relevant keywords for you. It uses artificial intelligence to understand the context and meaning of your text and identify the keywords that best represent it.'
+  title: 'Discover AI apps for SEO usecase',
+  subtitle: 'A Smart, Automatic, Fast and Lightweight',
+  // subtitle: 'Boost your creativity & productivity',
+  desc: 'AIKYE is an AI-powered (Chat GPT-3.5) keyword tool that can analyze any text and extract the most relevant keywords for you. It uses artificial intelligence to understand the context and meaning of your text and identify the keywords that best represent it.'
 };
 
 export const LIST_ITEMS = [
@@ -62,9 +67,9 @@ export const LIST_CASES = [
 export const NAV_LINKS = [
   {
     id: uid(),
-    route: '/ai-keywords',
+    route: '/ai',
     icon: BsRobot,
-    link: 'AI Keywords'
+    link: 'AI Generators'
   },
   {
     id: uid(),
@@ -83,68 +88,145 @@ export const NAV_LINKS = [
 export const AI_TONE = [
   {
     id: uid(),
-    value: 'assertive',
+    val: 'assertive',
     option: 'Assertive'
   },
   {
     id: uid(),
-    value: 'casual',
+    val: 'casual',
     option: 'Casual'
   },
   {
     id: uid(),
-    value: 'convincing',
+    val: 'convincing',
     option: 'Convincing'
   },
   {
     id: uid(),
-    value: 'creative',
+    val: 'creative',
     option: 'Creative'
   },
   {
     id: uid(),
-    value: 'descriptive',
+    val: 'descriptive',
     option: 'Descriptive'
   },
   {
     id: uid(),
-    value: 'formal',
+    val: 'formal',
     option: 'Formal'
   },
   {
     id: uid(),
-    value: 'friendly',
+    val: 'friendly',
     option: 'Friendly'
   },
   {
     id: uid(),
-    value: 'professional',
+    val: 'professional',
     option: 'Professional'
   },
   {
     id: uid(),
-    value: 'thoughtful',
+    val: 'thoughtful',
     option: 'Thoughtful'
   }
 ];
-export const AI_USE_CASES = [
+export const AI_MAX_NUMBER = [
   {
     id: uid(),
-    value: 'keywords extractor',
-    option: 'Keywords extractor'
+    val: '5',
+    option: '5'
   },
   {
     id: uid(),
-    value: 'keywords generator',
-    option: 'Generate keywords'
+    val: '10',
+    option: '10'
   },
   {
     id: uid(),
-    value: 'hashtags generator',
-    option: 'Hashtags generator'
+    val: '15',
+    option: '15'
+  },
+  {
+    id: uid(),
+    val: '20',
+    option: '20'
+  },
+  {
+    id: uid(),
+    val: '25',
+    option: '25'
+  }
+];
+
+export const AI_PROMPTS = [
+  {
+    id: uid(),
+    icon: GiSwordSlice,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Keywords ideas generator',
+    route: '/ai/generate-keywords'
+  },
+  {
+    id: uid(),
+    icon: GiCrossedSwords,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Keywords extractor',
+    route: '/ai/keywords-extractor'
+  },
+  {
+    id: uid(),
+    icon: GiSwordsEmblem,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Hashtags generator',
+    route: '/ai/hashtags-generator'
+  },
+  {
+    id: uid(),
+    icon: BsTagsFill,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Meta tags generator',
+    route: '/ai/meta-tags-generator'
+  },
+  {
+    id: uid(),
+    icon: MdOutlineSubtitles,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Blog post title generator',
+    route: '/ai/blog-post-title-generator'
+  },
+  {
+    id: uid(),
+    icon: FaQuoteLeft,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Generate an FAQ',
+    route: '/ai/generate-faq'
+  },
+  {
+    id: uid(),
+    icon: MdOutlineSummarize,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Summarize text',
+    route: '/ai/summarize-text'
+  },
+  {
+    id: uid(),
+    icon: GiStripedSword,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'More use cases coming soon',
+    route: '/ai/coming-soon'
   }
 ];
 
 // Examples:
 // Add Select tone of voice for your keywords: options (professional, assertive, casual, friendly, compassionate, convincing, formal)
-// Add choose use case: (keywords extractor, keywords generator, generate hashtags article/title generator, ads generator, summarizer etc.)
+// Add choose use case: (keywords extractor, keywords generator, generate hashtags article/title
+// generator, ads generator, summarizer etc.)
+
+// <Card
+//   title={title}
+//   icon={<Icon as={icon} w={10} h={10} />}
+//   description={description}
+//   route={route}
+// />;
