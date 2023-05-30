@@ -7,7 +7,7 @@ const tokens = {
       'fg-footer': '#98f0ff',
       'bg-icon': '#a1f0fe',
       'bg-transition': '#2375bd',
-      'fg-default': '#dbdbdb', // body text
+      'fg-default': '#efefef', // body text
       'fg-muted': '#cbdff5',
       'fg-accent': '#FFEA00',
       'top-line': '5px solid #90e0ef'

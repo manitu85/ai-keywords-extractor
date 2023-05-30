@@ -20,6 +20,7 @@ import { PromptInput, Select } from '@/components';
 import { MotionRouteTransition } from '@/components/Motion';
 import MotionBox from '@/components/Motion/MotionBox';
 import { OPENAI_API_KEY } from '@/config';
+import { useBetterToast } from '@/hooks/useBetterToast';
 import { routeProps } from '@/theme/motion/motion.variants';
 import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize } from '@/utils';
 
@@ -28,6 +29,9 @@ const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
 export default function ExtractKeywords() {
   //* Pass Input ref
   const inputTextElement = useRef('');
+
+  // eslint-disable-next-line no-unused-vars
+  const [{ successToast, errorToast }] = useBetterToast();
 
   //* chakra hook
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,36 +44,13 @@ export default function ExtractKeywords() {
   const { voiceStyleSelect, setVoiceStyleSelect } = useAiKeywordsContext();
   const { maxNumberSelect, setMaxNumberSelect } = useAiKeywordsContext();
 
-  // Goes to utils
-  const errorToast = useToast({
-    title: "Text field can't be empty",
-    description: 'Please enter some text to extract keyword.',
-    variant: 'toastError',
-    status: 'error'
-  });
-
-  const successToast = useToast({
-    title: 'Processing data... ',
-    description: 'Your keyword will be here for few seconds.',
-    variant: 'toastSuccess',
-    status: 'success'
-  });
-
-  //* handler func.
-  const handleOptionsChange = e => setVoiceStyleSelect(e.target.value);
-  const handleUseCasesChange = e => setMaxNumberSelect(e.target.value);
-
-  // console.log('KEYWORDS:', keywords);
-  // const generateKeywords = async (prompt, voiceStyle) => {};
-  // const generateHashtags = async (prompt, voiceStyle) => {};
-
-  const extractKeywords = async (text, tone, number) => {
+  const extractKeywords = async (content, tone, number) => {
     setLoading(true);
-    onOpen(true);
+    onOpen(true); // Modal
 
     console.log('PROMPT:', prompt);
-    console.log('TONE:', tone);
-    console.log('CASE:', number);
+    console.log('TONE:', voiceStyleSelect);
+    console.log('MAX_NUMBER:', maxNumberSelect);
 
     // Ensure only the minimal needed data is exposed
     const extractedKeywordsOptions = {
@@ -80,7 +61,7 @@ export default function ExtractKeywords() {
       //* Data to be sent as the request body
       data: {
         model: 'text-davinci-003',
-        prompt: `Take on the persona of expert SEO Marketing with 5 years of experience. The writing style is ${tone} tone of voice and the output should include ${number} relevant keywords. Extract keywords from this text and make the first letter of every word uppercase and separate with commas:\n\n ${text} &nbsp;  `,
+        prompt: `Take on the persona of expert SEO Marketing with 5 years of experience. The tone of voice is ${tone}  and the output should include ${number} relevant keywords. Extract keywords from this text and make the first letter of every word uppercase and separate with commas:\n\n ${content} &nbsp;`,
         temperature: 0.5,
         max_tokens: 60,
         top_p: 1,
@@ -89,7 +70,7 @@ export default function ExtractKeywords() {
       }
     };
     try {
-      //* axios instance already include url path, we need only data as body request
+      //* axios instance already include url path, needed only data as body request
       const res = await axiosClient.post('/completions', extractedKeywordsOptions);
       const data = await res.data;
 
@@ -104,15 +85,25 @@ export default function ExtractKeywords() {
     }
   };
 
+  //* handler func.
+  const handleOptionsChange = e => setVoiceStyleSelect(e.target.value);
+  const handleMaxNumberChange = e => setMaxNumberSelect(e.target.value);
+
   const handleSubmit = e => {
     e.preventDefault();
-    let inputValue = inputTextElement.current?.value;
+    const inputValue = inputTextElement.current?.value;
     if (inputValue === '') {
-      errorToast();
+      errorToast({
+        message: "Text field can't be empty",
+        description: 'Please enter some text to extract keyword.'
+      });
     } else {
-      successToast();
+      successToast({
+        message: 'Processing data... ',
+        description: 'Your keywords will be here for few seconds.'
+      });
       extractKeywords(inputValue, voiceStyleSelect, maxNumberSelect);
-      inputValue = '';
+      inputTextElement.current.value = '';
     }
   };
 
@@ -160,8 +151,8 @@ export default function ExtractKeywords() {
                 <Select
                   options={AI_MAX_NUMBER}
                   value={Number(maxNumberSelect)}
-                  handler={handleUseCasesChange}
-                  placeholder='Max number of words'
+                  handler={handleMaxNumberChange}
+                  placeholder='Set max number of words'
                 />
               </HStack>
               <PromptInput ref={inputTextElement} placeholder='Paste text here ...' />

@@ -13,8 +13,8 @@ const headerResponsiveSizes = ['1.5rem', '1.75rem', '2rem'];
 export default function About() {
   return (
     <>
+      <MotionProgressBar />
       <MotionBox {...routeProps}>
-        <MotionProgressBar />
         <Container maxW='3xl'>
           <Heading as='h2' mb={8} algin='left' fontSize={headerResponsiveSizes}>
             {' '}

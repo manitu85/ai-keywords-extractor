@@ -1,4 +1,5 @@
 import { Box, Container, useColorMode } from '@chakra-ui/react';
+import { Outlet } from 'react-router-dom';
 
 import MainContainer from '@/components/_Elements/Container';
 import Footer from '@/components/Layout/Footer';

@@ -9,6 +9,7 @@ const MotionProgressBar = () => {
     damping: 20,
     restDelta: 0.001
   });
+
   return (
     <MotionBox
       pos='fixed'

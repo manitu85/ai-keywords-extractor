@@ -1,12 +1,27 @@
 /* eslint-disable prefer-spread */
 import { Box, Text } from '@chakra-ui/react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import { scrollToTop } from '@/utils';
 
 export default function Footer() {
-  const { pathname } = useLocation();
-  const aboutPath = pathname === '/about';
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.scrollY >= 500) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []);
+
   return (
     <Box
       as='footer'
@@ -17,12 +32,12 @@ export default function Footer() {
       bottom='0'
       left='0'
       right='0'
-      cursor={aboutPath ? 'pointer' : 'not-allowed'}
-      onClick={aboutPath ? scrollToTop : undefined}
+      cursor={isVisible ? 'pointer' : 'not-allowed'}
+      onClick={isVisible ? scrollToTop : undefined}
     >
       <Text
         py={6}
-        fontSize={['0.75em', '0.75em', '0.85em']}
+        fontSize={{ base: '0.75em', md: '0.85em' }}
         textAlign='center'
         color='fg-footer'
         letterSpacing='wider'

@@ -13,7 +13,7 @@ const Card = ({ title, description, icon, route }) => {
       px={4}
       pb={4}
     >
-      <Stack align='start' spacing={2}>
+      <Stack align='start' justify='space-between' h='200px' flexWrap='wrap' spacing={2}>
         <Center w={16} h={16} bg='transparent'>
           {icon}
         </Center>
@@ -25,17 +25,19 @@ const Card = ({ title, description, icon, route }) => {
             {description}
           </Text>
         </Box>
-        <LinkOverlay
-          as={RouteLink}
-          to={route}
-          fontSize='0.7em'
-          fontWeight='bold'
-          textTransform='uppercase'
-          letterSpacing='widest'
-          color='fg-accent'
-        >
-          Try Now
-        </LinkOverlay>
+        <Box>
+          <LinkOverlay
+            as={RouteLink}
+            to={route}
+            fontSize='0.7em'
+            fontWeight='bold'
+            textTransform='uppercase'
+            letterSpacing='widest'
+            color='fg-accent'
+          >
+            Try Now
+          </LinkOverlay>
+        </Box>
       </Stack>
     </LinkBox>
   );

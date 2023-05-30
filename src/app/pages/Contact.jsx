@@ -195,5 +195,4 @@ export default function Contact() {
   );
 }
 
-// Todo: Try Chakra UI + Formik to implement
 // https://chakra-ui.com/getting-started/with-formik
