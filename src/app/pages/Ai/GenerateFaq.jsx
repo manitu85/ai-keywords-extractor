@@ -9,7 +9,6 @@ import {
   Image,
   Text,
   useDisclosure,
-  useToast,
   VStack
 } from '@chakra-ui/react';
 import { KeywordsModal } from '@Elements';
@@ -113,7 +112,7 @@ export default function ExtractKeywords() {
         <Container maxW='3xl'>
           <VStack spacing={1}>
             <HStack>
-              <Image src='/src/assets/bulb.svg' w='4rem' h='4rem' mr={2} />
+              <Image src='src/assets/bulb.svg' w='4rem' h='4rem' mr={2} />
               <Heading
                 as='h1'
                 color='white'

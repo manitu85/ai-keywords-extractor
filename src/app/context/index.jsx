@@ -55,6 +55,6 @@ export function useAiKeywordsContext() {
 //   setAudienceSelect,
 //   voiceStyleSelect,
 //   setVoiceStyleSelect,
-//   useCaseSelect,
-//   setUseCaseSelect
+//   maxNumberSelect,
+//   setMaxNumberSelect;
 // } = useAiKeywordsContext();

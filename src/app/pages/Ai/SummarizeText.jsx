@@ -9,7 +9,6 @@ import {
   Image,
   Text,
   useDisclosure,
-  useToast,
   VStack
 } from '@chakra-ui/react';
 import { KeywordsModal } from '@Elements';
@@ -22,7 +21,7 @@ import MotionBox from '@/components/Motion/MotionBox';
 import { OPENAI_API_KEY } from '@/config';
 import { useBetterToast } from '@/hooks/useBetterToast';
 import { routeProps } from '@/theme/motion/motion.variants';
-import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize } from '@/utils';
+import { AI_TONE, axiosClient, capitalize } from '@/utils';
 
 const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
 
@@ -42,7 +41,6 @@ export default function ExtractKeywords() {
   //* Global context
   const { prompt, setPrompt } = useAiKeywordsContext();
   const { voiceStyleSelect, setVoiceStyleSelect } = useAiKeywordsContext();
-  const { maxNumberSelect, setMaxNumberSelect } = useAiKeywordsContext();
 
   const extractKeywords = async (content, tone, number) => {
     setLoading(true);
@@ -50,7 +48,6 @@ export default function ExtractKeywords() {
 
     console.log('PROMPT:', prompt);
     console.log('TONE:', voiceStyleSelect);
-    console.log('MAX_NUMBER:', maxNumberSelect);
 
     // Ensure only the minimal needed data is exposed
     const extractedKeywordsOptions = {
@@ -61,7 +58,7 @@ export default function ExtractKeywords() {
       //* Data to be sent as the request body
       data: {
         model: 'text-davinci-003',
-        prompt: `Generate an FAQ of ${number} questions based on the this content: \n\n ${content}. Use thes ${tone} tone of voice. &nbsp;`,
+        prompt: `"Summarize the following content in 10 bullet points:": \n\n ${content}. &nbsp;`,
         temperature: 0.5,
         max_tokens: 60,
         top_p: 1,
@@ -87,7 +84,6 @@ export default function ExtractKeywords() {
 
   //* handler func.
   const handleOptionsChange = e => setVoiceStyleSelect(e.target.value);
-  const handleMaxNumberChange = e => setMaxNumberSelect(e.target.value);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -95,14 +91,14 @@ export default function ExtractKeywords() {
     if (inputValue === '') {
       errorToast({
         message: "Text field can't be empty",
-        description: 'Please enter some topic to generate FAQ.'
+        description: 'Please enter some text to summarize it.'
       });
     } else {
       successToast({
         message: 'Processing data... ',
         description: 'Your content will be here for few seconds.'
       });
-      extractKeywords(inputValue, voiceStyleSelect, maxNumberSelect);
+      extractKeywords(inputValue, voiceStyleSelect);
       inputTextElement.current.value = '';
     }
   };
@@ -120,17 +116,13 @@ export default function ExtractKeywords() {
                 fontSize={headerResponsiveSizes}
                 fontFamily='"Open Sans"'
               >
-                {capitalize('Frequently Asked Questions Generator')}
+                {capitalize('Content Summarizer tool')}
               </Heading>
-            </HStack>
-            <HStack mt='-0.5rem !important'>
-              <Image src='/src/assets/openai.svg' w='1.25rem' h='1.25rem' />
-              <Text>Powered by Open AI</Text>
             </HStack>
           </VStack>
           <Text align='left' py={8} fontSize='1.05rem' lineHeight='1.25' color='base.200'>
-            is helps you summarize any piece of text into concise, easy to digest content so you can
-            free yourself from information overload.
+            Summary generator tool it helps you summarize any piece of text into concise, easy to
+            digest content so you can free yourself from information overload.
           </Text>
 
           <FormControl>
@@ -147,12 +139,6 @@ export default function ExtractKeywords() {
                   value={voiceStyleSelect}
                   handler={handleOptionsChange}
                   placeholder='Select tone of voice'
-                />
-                <Select
-                  options={AI_MAX_NUMBER}
-                  value={Number(maxNumberSelect)}
-                  handler={handleMaxNumberChange}
-                  placeholder='Set max number of lines'
                 />
               </HStack>
               <PromptInput ref={inputTextElement} placeholder='Paste text here ...' />

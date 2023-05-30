@@ -20,6 +20,7 @@ import { PromptInput, Select } from '@/components';
 import { MotionRouteTransition } from '@/components/Motion';
 import MotionBox from '@/components/Motion/MotionBox';
 import { OPENAI_API_KEY } from '@/config';
+import { useBetterToast } from '@/hooks/useBetterToast';
 import { routeProps } from '@/theme/motion/motion.variants';
 import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize } from '@/utils';
 
@@ -28,6 +29,9 @@ const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
 export default function MetatagsGenerator() {
   //* Pass Input ref
   const inputTextElement = useRef('');
+
+  // eslint-disable-next-line no-unused-vars
+  const [{ successToast, errorToast }] = useBetterToast();
 
   //* chakra hook
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,36 +44,13 @@ export default function MetatagsGenerator() {
   const { voiceStyleSelect, setVoiceStyleSelect } = useAiKeywordsContext();
   const { maxNumberSelect, setMaxNumberSelect } = useAiKeywordsContext();
 
-  // Goes to utils
-  const errorToast = useToast({
-    title: "Text field can't be empty",
-    description: 'Please enter some text to extract keyword.',
-    variant: 'toastError',
-    status: 'error'
-  });
-
-  const successToast = useToast({
-    title: 'Processing data... ',
-    description: 'Your keyword will be here for few seconds.',
-    variant: 'toastSuccess',
-    status: 'success'
-  });
-
-  //* handler func.
-  const handleOptionsChange = e => setVoiceStyleSelect(e.target.value);
-  const handleUseCasesChange = e => setMaxNumberSelect(e.target.value);
-
-  // console.log('KEYWORDS:', keywords);
-  // const generateKeywords = async (prompt, voiceStyle) => {};
-  // const generateHashtags = async (prompt, voiceStyle) => {};
-
-  const extractKeywords = async (text, tone, number) => {
+  const extractKeywords = async (content, tone, number) => {
     setLoading(true);
-    onOpen(true);
+    onOpen(true); // Modal
 
     console.log('PROMPT:', prompt);
-    console.log('TONE:', tone);
-    console.log('CASE:', number);
+    console.log('TONE:', voiceStyleSelect);
+    console.log('MAX_NUMBER:', maxNumberSelect);
 
     // Ensure only the minimal needed data is exposed
     const extractedKeywordsOptions = {
@@ -80,7 +61,7 @@ export default function MetatagsGenerator() {
       //* Data to be sent as the request body
       data: {
         model: 'text-davinci-003',
-        prompt: `Take on the persona of expert SEO Marketing with 5 years of experience. The writing style is ${tone} and the output should include ${number} relevant keywords. Extract keywords from this text and make the first letter of every word uppercase and separate with commas:\n\n ${text} &nbsp;  `,
+        prompt: `Write the HTML for the meta description ${content}.`,
         temperature: 0.5,
         max_tokens: 60,
         top_p: 1,
@@ -104,15 +85,25 @@ export default function MetatagsGenerator() {
     }
   };
 
+  //* handler func.
+  const handleOptionsChange = e => setVoiceStyleSelect(e.target.value);
+  const handleMaxNumberChange = e => setMaxNumberSelect(e.target.value);
+
   const handleSubmit = e => {
     e.preventDefault();
-    let inputValue = inputTextElement.current?.value;
+    const inputValue = inputTextElement.current?.value;
     if (inputValue === '') {
-      errorToast();
+      errorToast({
+        message: "Text field can't be empty",
+        description: 'Please enter some topic to generate FAQ.'
+      });
     } else {
-      successToast();
+      successToast({
+        message: 'Processing data... ',
+        description: 'Your content will be here for few seconds.'
+      });
       extractKeywords(inputValue, voiceStyleSelect, maxNumberSelect);
-      inputValue = '';
+      inputTextElement.current.value = '';
     }
   };
 
@@ -129,7 +120,7 @@ export default function MetatagsGenerator() {
                 fontSize={headerResponsiveSizes}
                 fontFamily='"Open Sans"'
               >
-                {capitalize('Fast Keywords Extractor')}
+                {capitalize('Generate Frequently Asked Questions')}
               </Heading>
             </HStack>
             <HStack mt='-0.5rem !important'>
@@ -138,8 +129,10 @@ export default function MetatagsGenerator() {
             </HStack>
           </VStack>
           <Text align='left' py={8} fontSize='1.05rem' lineHeight='1.25' color='base.200'>
-            Keyword Extractor is an AI-powered (Chat GPT-3.5) keyword tool that can analyze any text
-            and extract the most relevant keywords, generate keywords and make hashtags for you.
+            Using the Frequently Asked Questions (FAQ) Generator can help you improve your website
+            SEO by creating optimized FAQs that contain the relevant keywords. It also helps you
+            create a comprehensive FAQ page that is easy to navigate and provides answers to the
+            most common questions about your website.
           </Text>
 
           <FormControl>
@@ -160,8 +153,8 @@ export default function MetatagsGenerator() {
                 <Select
                   options={AI_MAX_NUMBER}
                   value={Number(maxNumberSelect)}
-                  handler={handleUseCasesChange}
-                  placeholder='Max number of words'
+                  handler={handleMaxNumberChange}
+                  placeholder='Set max number of lines'
                 />
               </HStack>
               <PromptInput ref={inputTextElement} placeholder='Paste text here ...' />
@@ -192,16 +185,3 @@ export default function MetatagsGenerator() {
     </>
   );
 }
-
-// Todo: Add custom button variants
-// Todo: Change name keywords of modal to prompt
-
-//! Don't expose openai api key on frontend
-// Todo: Make custom backend with express.js, store and protect openai api key and post prompt request from server to openai (-i pkg: express, dotenv, cors, body-parser, node:path, node:fs, openai node)
-// Todo: Call backend api on frontend when you made node server (-i pkg: nodemon, concurrently)
-
-// v1/completions;
-//* model: 'text-davinci-003', GPT-3 // $0.0200 / 1K tokens
-//* model: 'text-curie-001', GPT-3 // $0.0020 / 1K tokens
-//* model: 'text-babbage-001', GPT-3 // $0.0005 / 1K tokens
-//* model: 'text-ada-001', GPT-3 // $0.0004 / 1K tokens
