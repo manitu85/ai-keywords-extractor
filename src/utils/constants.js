@@ -207,8 +207,8 @@ export const AI_PROMPTS = [
     id: uid(),
     icon: MdOutlineSummarize,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
-    title: 'Summarize text',
-    route: '/ai/summarize-text'
+    title: 'Summarize content',
+    route: '/ai/summarize-content'
   },
   {
     id: uid(),
