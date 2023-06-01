@@ -7,6 +7,12 @@ export const capitalize = str => {
   return str.charAt(0).toUpperCase() + lower.slice(1);
 };
 
+// Capitalize every first letter of word in sentence
+export const toTitleCase = title => {
+  const splitSentence = title.toLowerCase().split(' ');
+  return splitSentence.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+
 // Simple scroll to top func.
 export const scrollToTop = () => {
   window.scrollTo({

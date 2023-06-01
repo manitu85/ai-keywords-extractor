@@ -1,4 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsPatchQuestion, BsRobot, BsTagsFill } from 'react-icons/bs';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { GiCrossedSwords, GiStripedSword, GiSwordsEmblem, GiSwordSlice } from 'react-icons/gi';
@@ -10,8 +11,7 @@ import { uid } from '@/utils';
 export const FEATURE = {
   title: 'Discover AI apps for SEO usecase',
   subtitle: 'A Smart, Automatic, Fast and Lightweight',
-  // subtitle: 'Boost your creativity & productivity',
-  desc: 'AIKYE is an AI-powered (Chat GPT-3.5) keyword tool that can analyze any text and extract the most relevant keywords for you. It uses artificial intelligence to understand the context and meaning of your text and identify the keywords that best represent it.'
+  desc: 'AIKYE is an AI-powered (Chat GPT-3.5) SEO tool that can analyze any text and extract the most relevant keywords for you, make hashtags, catchy blog titles and much more. It uses artificial intelligence to understand the context and meaning of your text and identify the tools that best represent it.'
 };
 
 export const LIST_ITEMS = [
@@ -165,8 +165,8 @@ export const AI_PROMPTS = [
     id: uid(),
     icon: GiSwordSlice,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
-    title: 'Keywords ideas generator',
-    route: '/ai/generate-keywords'
+    title: 'Long Tail Keywords',
+    route: '/ai/long-tail-keywords'
   },
   {
     id: uid(),
@@ -193,7 +193,7 @@ export const AI_PROMPTS = [
     id: uid(),
     icon: MdOutlineSubtitles,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
-    title: 'Blog post title generator',
+    title: 'Catchy blog post titles',
     route: '/ai/blog-post-title-generator'
   },
   {
@@ -209,6 +209,13 @@ export const AI_PROMPTS = [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
     title: 'Summarize content',
     route: '/ai/summarize-content'
+  },
+  {
+    id: uid(),
+    icon: AiOutlineShoppingCart,
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elite.',
+    title: 'Product Description',
+    route: '/ai/product-description'
   },
   {
     id: uid(),
