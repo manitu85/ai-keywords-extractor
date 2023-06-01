@@ -32,8 +32,8 @@ export default function Routings() {
             <Route path='long-tail-keywords' element={<LongTailKeywords />} />
             <Route path='hashtags-generator' element={<HashtagsGenerator />} />
             <Route path='keywords-extractor' element={<KeywordsExtractor />} />
-            <Route path='meta-tags-generator' element={<MetatagsGenerator />} />
             <Route path='product-description' element={<ProductDescription />} />
+            <Route path='meta-tags-generator' element={<MetatagsGenerator />} />
             <Route path='blog-post-title-generator' element={<BlogPostTitleGenerator />} />
           </Route>
           <Route path='about' element={<About />} />
