@@ -6,6 +6,7 @@ import { NAV_LINKS } from '@/utils';
 
 const NavLink = ({ icon, link, route }) => {
   const { pathname } = useLocation();
+
   return (
     <Box
       as={motion.li}

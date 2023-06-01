@@ -13,8 +13,8 @@ const Card = ({ title, description, icon, route }) => {
       px={4}
       pb={4}
     >
-      <Stack align='start' justify='space-between' h='200px' flexWrap='wrap' spacing={2}>
-        <Center w={16} h={16} bg='transparent'>
+      <Stack align='start' justify='space-around' h='200px' flexWrap='wrap' spacing={2}>
+        <Center h={16} bg='transparent'>
           {icon}
         </Center>
         <Box mt={2}>
