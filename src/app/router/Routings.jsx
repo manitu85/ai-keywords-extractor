@@ -1,6 +1,3 @@
-import { AnimatePresence } from 'framer-motion';
-import { Route, Routes, useLocation } from 'react-router-dom';
-
 import {
   About,
   AiApps,
@@ -15,7 +12,9 @@ import {
   NotFound,
   ProductDescription,
   SummarizeText
-} from '@/app/pages';
+} from '@App/pages';
+import { AnimatePresence } from 'framer-motion';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import AiLayout from '../layouts/AiLayout';
 
@@ -34,8 +33,8 @@ export default function Routings() {
             <Route path='hashtags-generator' element={<HashtagsGenerator />} />
             <Route path='keywords-extractor' element={<KeywordsExtractor />} />
             <Route path='meta-tags-generator' element={<MetatagsGenerator />} />
-            <Route path='blog-post-title-generator' element={<BlogPostTitleGenerator />} />
             <Route path='product-description' element={<ProductDescription />} />
+            <Route path='blog-post-title-generator' element={<BlogPostTitleGenerator />} />
           </Route>
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />
