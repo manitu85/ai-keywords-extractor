@@ -87,7 +87,6 @@ export default function About() {
               <ListItem key={id} title={text} />
             ))}
           </List>
-          <Technologies />
         </Container>
       </MotionBox>
       <MotionRouteTransition />

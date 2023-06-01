@@ -18,7 +18,7 @@ const Technologies = () => {
   };
 
   return (
-    <VStack justify='center' align='center' pt={6}>
+    <VStack justify='center' align='center' mb={6} mt={-2}>
       <Heading as='h6' fontSize='0.75em' mb={2} textTransform='uppercase' letterSpacing='widest'>
         Builded with Next Generation Frontend Tools
       </Heading>

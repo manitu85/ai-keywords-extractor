@@ -1,5 +1,6 @@
 import { Container, Flex, Icon } from '@chakra-ui/react';
 import { Card, PageHeading } from '@Elements';
+import Technologies from '@Elements/Technologies';
 
 import { MotionBox, MotionProgressBar, MotionRouteTransition } from '@/components/Motion';
 import { routeProps } from '@/theme/motion/motion.variants';
@@ -27,6 +28,7 @@ export default function AiSeoApps() {
             ))}
           </Flex>
         </Container>
+        <Technologies />
       </MotionBox>
       <MotionRouteTransition />
     </>
