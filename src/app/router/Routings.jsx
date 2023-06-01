@@ -7,12 +7,13 @@ import {
   BlogPostTitleGenerator,
   Contact,
   GenerateFaq,
-  GenerateKeywords,
   HashtagsGenerator,
   Home,
   KeywordsExtractor,
+  LongTailKeywords,
   MetatagsGenerator,
   NotFound,
+  ProductDescription,
   SummarizeText
 } from '@/app/pages';
 
@@ -28,12 +29,13 @@ export default function Routings() {
           <Route path='ai' element={<AiLayout />}>
             <Route index element={<AiApps />} />
             <Route path='generate-faq' element={<GenerateFaq />} />
-            <Route path='summarize-text' element={<SummarizeText />} />
-            <Route path='generate-keywords' element={<GenerateKeywords />} />
+            <Route path='summarize-content' element={<SummarizeText />} />
+            <Route path='long-tail-keywords' element={<LongTailKeywords />} />
             <Route path='hashtags-generator' element={<HashtagsGenerator />} />
             <Route path='keywords-extractor' element={<KeywordsExtractor />} />
             <Route path='meta-tags-generator' element={<MetatagsGenerator />} />
             <Route path='blog-post-title-generator' element={<BlogPostTitleGenerator />} />
+            <Route path='product-description' element={<ProductDescription />} />
           </Route>
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />

@@ -1,10 +1,11 @@
 export { default as About } from './About';
 export { default as BlogPostTitleGenerator } from './Ai/BlogPostTitleGenerator';
 export { default as GenerateFaq } from './Ai/GenerateFaq';
-export { default as GenerateKeywords } from './Ai/GenerateKeywords';
 export { default as HashtagsGenerator } from './Ai/HashtagsGenerator';
 export { default as KeywordsExtractor } from './Ai/KeywordsExtractor';
+export { default as LongTailKeywords } from './Ai/LongTailKeywords';
 export { default as MetatagsGenerator } from './Ai/MetatagsGenerator';
+export { default as ProductDescription } from './Ai/ProductDescription';
 export { default as SummarizeText } from './Ai/SummarizeText';
 export { default as AiApps } from './AiApps';
 export { default as Contact } from './Contact';

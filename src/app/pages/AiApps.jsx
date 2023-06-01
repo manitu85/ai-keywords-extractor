@@ -1,13 +1,14 @@
-import { Container, Flex, Heading, Icon } from '@chakra-ui/react';
+import { Container, Flex, Icon } from '@chakra-ui/react';
 import { Card, PageHeading } from '@Elements';
 
-import { MotionBox, MotionRouteTransition } from '@/components/Motion';
+import { MotionBox, MotionProgressBar, MotionRouteTransition } from '@/components/Motion';
 import { routeProps } from '@/theme/motion/motion.variants';
 import { AI_PROMPTS } from '@/utils';
 
 export default function AiSeoApps() {
   return (
     <>
+      <MotionProgressBar />
       <MotionBox {...routeProps}>
         <PageHeading
           title='Boost your SEO power, creativity & productivity'

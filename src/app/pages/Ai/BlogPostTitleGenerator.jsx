@@ -21,7 +21,7 @@ import { MotionRouteTransition } from '@/components/Motion';
 import MotionBox from '@/components/Motion/MotionBox';
 import { OPENAI_API_KEY } from '@/config';
 import { routeProps } from '@/theme/motion/motion.variants';
-import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize } from '@/utils';
+import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize, toTitleCase } from '@/utils';
 
 const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
 
@@ -80,7 +80,7 @@ export default function BlogPostTitleGenerator() {
       //* Data to be sent as the request body
       data: {
         model: 'text-davinci-003',
-        prompt: `Take on the persona of expert SEO Marketing with 5 years of experience. The writing style is ${tone} and the output should include ${number} relevant keywords. Extract keywords from this text and make the first letter of every word uppercase and separate with commas:\n\n ${text} &nbsp;  `,
+        prompt: `Make the blog post titled ${text} more catchy`,
         temperature: 0.5,
         max_tokens: 60,
         top_p: 1,
@@ -129,12 +129,8 @@ export default function BlogPostTitleGenerator() {
                 fontSize={headerResponsiveSizes}
                 fontFamily='"Open Sans"'
               >
-                {capitalize('Fast Keywords Extractor')}
+                {toTitleCase('catchy blog post titles')}
               </Heading>
-            </HStack>
-            <HStack mt='-0.5rem !important'>
-              <Image src='/src/assets/openai.svg' w='1.25rem' h='1.25rem' />
-              <Text>Powered by Open AI</Text>
             </HStack>
           </VStack>
           <Text align='left' py={8} fontSize='1.05rem' lineHeight='1.25' color='base.200'>
@@ -161,7 +157,7 @@ export default function BlogPostTitleGenerator() {
                   options={AI_MAX_NUMBER}
                   value={Number(maxNumberSelect)}
                   handler={handleUseCasesChange}
-                  placeholder='Max number of words'
+                  placeholder='Max number of post titles'
                 />
               </HStack>
               <PromptInput ref={inputTextElement} placeholder='Paste text here ...' />

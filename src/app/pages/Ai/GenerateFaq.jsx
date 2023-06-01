@@ -25,7 +25,7 @@ import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize } from '@/utils';
 
 const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
 
-export default function ExtractKeywords() {
+export default function GenerateFaq() {
   //* Pass Input ref
   const inputTextElement = useRef('');
 
@@ -121,10 +121,6 @@ export default function ExtractKeywords() {
               >
                 {capitalize('Generate Frequently Asked Questions')}
               </Heading>
-            </HStack>
-            <HStack mt='-0.5rem !important'>
-              <Image src='/src/assets/openai.svg' w='1.25rem' h='1.25rem' />
-              <Text>Powered by Open AI</Text>
             </HStack>
           </VStack>
           <Text align='left' py={8} fontSize='1.05rem' lineHeight='1.25' color='base.200'>

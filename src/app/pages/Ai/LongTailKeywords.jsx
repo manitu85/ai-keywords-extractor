@@ -25,7 +25,7 @@ import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize } from '@/utils';
 
 const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
 
-export default function HashtagsGenerator() {
+export default function LongTailKeywords() {
   //* Pass Input ref
   const inputTextElement = useRef('');
 
@@ -50,7 +50,7 @@ export default function HashtagsGenerator() {
 
   const successToast = useToast({
     title: 'Processing data... ',
-    description: 'Your keyword will be here for few seconds.',
+    description: 'Your ideas keywords will be here for few seconds.',
     variant: 'toastSuccess',
     status: 'success'
   });
@@ -63,7 +63,7 @@ export default function HashtagsGenerator() {
   // const generateKeywords = async (prompt, voiceStyle) => {};
   // const generateHashtags = async (prompt, voiceStyle) => {};
 
-  const extractKeywords = async (text, tone, number) => {
+  const extractKeywords = async (content, tone, number) => {
     setLoading(true);
     onOpen(true);
 
@@ -80,7 +80,7 @@ export default function HashtagsGenerator() {
       //* Data to be sent as the request body
       data: {
         model: 'text-davinci-003',
-        prompt: `Take on the persona of expert SEO Marketing with 5 years of experience. The writing style is ${tone} and the output should include ${number} relevant keywords. Extract keywords from this text and make the first letter of every word uppercase and separate with commas:\n\n ${text} &nbsp;  `,
+        prompt: `Generate a list of ${number} long-tail keywords related to ${content} and use ${tone} tone of voice`,
         temperature: 0.5,
         max_tokens: 60,
         top_p: 1,
@@ -129,13 +129,15 @@ export default function HashtagsGenerator() {
                 fontSize={headerResponsiveSizes}
                 fontFamily='"Open Sans"'
               >
-                {capitalize('hashtags generator')}
+                {capitalize('Long Tail Keywords generator')}
               </Heading>
             </HStack>
           </VStack>
           <Text align='left' py={8} fontSize='1.05rem' lineHeight='1.25' color='base.200'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod accusantium perspiciatis
-            dolor minus impedit eos nostrum ea sapiente ducimus officiis.
+            When using a Long Tail Keyword generator, it is important to focus on generating
+            relevant keywords that are related to your website content. You should also make sure to
+            use the generated keywords in your website content in order to optimize it for SEO
+            purposes.
           </Text>
 
           <FormControl>
@@ -178,7 +180,7 @@ export default function HashtagsGenerator() {
               >
                 Generate Results
               </Button>
-              Paste in your text above and AIKYE will generate hashtags for you.
+              Paste in your text above and AIKYE will extract the keywords for you.
             </FormLabel>
           </FormControl>
           <KeywordsModal keywords={prompt} loading={loading} isOpen={isOpen} onClose={onClose} />
@@ -188,3 +190,16 @@ export default function HashtagsGenerator() {
     </>
   );
 }
+
+// Todo: Add custom button variants
+// Todo: Change name keywords of modal to prompt
+
+//! Don't expose openai api key on frontend
+// Todo: Make custom backend with express.js, store and protect openai api key and post prompt request from server to openai (-i pkg: express, dotenv, cors, body-parser, node:path, node:fs, openai node)
+// Todo: Call backend api on frontend when you made node server (-i pkg: nodemon, concurrently)
+
+// v1/completions;
+//* model: 'text-davinci-003', GPT-3 // $0.0200 / 1K tokens
+//* model: 'text-curie-001', GPT-3 // $0.0020 / 1K tokens
+//* model: 'text-babbage-001', GPT-3 // $0.0005 / 1K tokens
+//* model: 'text-ada-001', GPT-3 // $0.0004 / 1K tokens

@@ -120,19 +120,14 @@ export default function MetatagsGenerator() {
                 fontSize={headerResponsiveSizes}
                 fontFamily='"Open Sans"'
               >
-                {capitalize('Generate Frequently Asked Questions')}
+                {capitalize('Meta tags generator')}
               </Heading>
-            </HStack>
-            <HStack mt='-0.5rem !important'>
-              <Image src='/src/assets/openai.svg' w='1.25rem' h='1.25rem' />
-              <Text>Powered by Open AI</Text>
             </HStack>
           </VStack>
           <Text align='left' py={8} fontSize='1.05rem' lineHeight='1.25' color='base.200'>
-            Using the Frequently Asked Questions (FAQ) Generator can help you improve your website
-            SEO by creating optimized FAQs that contain the relevant keywords. It also helps you
-            create a comprehensive FAQ page that is easy to navigate and provides answers to the
-            most common questions about your website.
+            Meta Tags Generator has a number of features that help you optimize your website for
+            better search engine rankings. These features include automatic meta tag generation,
+            keyword optimization, and more.
           </Text>
 
           <FormControl>
@@ -150,12 +145,12 @@ export default function MetatagsGenerator() {
                   handler={handleOptionsChange}
                   placeholder='Select tone of voice'
                 />
-                <Select
+                {/* <Select
                   options={AI_MAX_NUMBER}
                   value={Number(maxNumberSelect)}
                   handler={handleMaxNumberChange}
                   placeholder='Set max number of lines'
-                />
+                /> */}
               </HStack>
               <PromptInput ref={inputTextElement} placeholder='Paste text here ...' />
               <Button
@@ -175,7 +170,7 @@ export default function MetatagsGenerator() {
               >
                 Generate Results
               </Button>
-              Paste in your text above and AIKYE will extract the keywords for you.
+              Paste in your text above and AIKYE will generate meta tags for you.
             </FormLabel>
           </FormControl>
           <KeywordsModal keywords={prompt} loading={loading} isOpen={isOpen} onClose={onClose} />

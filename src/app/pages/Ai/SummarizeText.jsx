@@ -21,7 +21,7 @@ import MotionBox from '@/components/Motion/MotionBox';
 import { OPENAI_API_KEY } from '@/config';
 import { useBetterToast } from '@/hooks/useBetterToast';
 import { routeProps } from '@/theme/motion/motion.variants';
-import { AI_TONE, axiosClient, capitalize } from '@/utils';
+import { AI_MAX_NUMBER, AI_TONE, axiosClient, capitalize } from '@/utils';
 
 const headerResponsiveSizes = ['1.75rem', '2rem', '2.5rem'];
 
@@ -41,7 +41,7 @@ export default function ExtractKeywords() {
   //* Global context
   const { prompt, setPrompt } = useAiKeywordsContext();
   const { voiceStyleSelect, setVoiceStyleSelect } = useAiKeywordsContext();
-
+  const { maxNumberSelect, setMaxNumberSelect } = useAiKeywordsContext();
   const extractKeywords = async (content, tone, number) => {
     setLoading(true);
     onOpen(true); // Modal
@@ -58,7 +58,7 @@ export default function ExtractKeywords() {
       //* Data to be sent as the request body
       data: {
         model: 'text-davinci-003',
-        prompt: `"Summarize the following content in 10 bullet points:": \n\n ${content}. &nbsp;`,
+        prompt: `"Summarize the following content using ${voiceStyleSelect} tone of voice in ${number} bullet points:": \n\n ${content}. &nbsp;`,
         temperature: 0.5,
         max_tokens: 60,
         top_p: 1,
@@ -84,6 +84,7 @@ export default function ExtractKeywords() {
 
   //* handler func.
   const handleOptionsChange = e => setVoiceStyleSelect(e.target.value);
+  const handleMaxNumberChange = e => setMaxNumberSelect(e.target.value);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -116,7 +117,7 @@ export default function ExtractKeywords() {
                 fontSize={headerResponsiveSizes}
                 fontFamily='"Open Sans"'
               >
-                {capitalize('Content Summarizer tool')}
+                {capitalize('Summarize content')}
               </Heading>
             </HStack>
           </VStack>
@@ -140,6 +141,12 @@ export default function ExtractKeywords() {
                   handler={handleOptionsChange}
                   placeholder='Select tone of voice'
                 />
+                <Select
+                  options={AI_MAX_NUMBER}
+                  value={Number(maxNumberSelect)}
+                  handler={handleMaxNumberChange}
+                  placeholder='Set max number of bullet points'
+                />
               </HStack>
               <PromptInput ref={inputTextElement} placeholder='Paste text here ...' />
               <Button
@@ -159,7 +166,7 @@ export default function ExtractKeywords() {
               >
                 Generate Results
               </Button>
-              Paste in your text above and AIKYE will extract the keywords for you.
+              Paste in your text above and AIKYE will summarize content for you.
             </FormLabel>
           </FormControl>
           <KeywordsModal keywords={prompt} loading={loading} isOpen={isOpen} onClose={onClose} />
