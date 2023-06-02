@@ -3,6 +3,8 @@
     "silent": true,
     "autoJobCancelation": true
   },
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "buildCommand": "pnpm build"
+  "buildCommand": "pnpm build",
+  "outputDirectory": "/build",
+  "framework": "vite",
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/server.js" }]
 }

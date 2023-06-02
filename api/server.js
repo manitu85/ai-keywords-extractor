@@ -1,3 +1,6 @@
+/* eslint-disable unicorn/prefer-module */
+import path from 'node:path';
+
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
@@ -30,7 +33,7 @@ app.use(cors());
 app.options('*', cors());
 
 // App Routes
-// app.use('/api', openAiRoutes);
+// app.use('/api', aiRoutes);
 
 app.get('/api/test', async (req, res) => {
   res.status(200).send({
@@ -76,6 +79,18 @@ app.post('/api/keywords', async (req, res) => {
   }
 });
 
+// Serving static content
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+  app.get('*', (_, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'), function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    });
+  });
+}
+
 //* Server Setup
 // const PORT = 8080;
 const PORT = process.env.PORT || 8080; // 5000
@@ -84,3 +99,9 @@ app.listen(PORT, error => {
   if (error) throw error;
   console.log(`Server is running on port: http://localhost:${PORT}`);
 });
+
+// api/
+// routes - for api routes
+// controllers - for the endpoints
+// models - for the schema
+// server.js - or index.js
