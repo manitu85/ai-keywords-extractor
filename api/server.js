@@ -81,9 +81,9 @@ app.post('/api/keywords', async (req, res) => {
 
 // Serving static content
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+  app.use(express.static(path.resolve(__dirname, 'build')));
   app.get('*', (_, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'), function (err) {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'), function (err) {
       if (err) {
         res.status(500).send(err);
       }
